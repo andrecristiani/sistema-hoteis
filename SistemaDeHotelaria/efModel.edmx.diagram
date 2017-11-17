@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="40f82643974f4179b2fad9c782348cea" Name="Diagram1" ZoomLevel="89">
+        <EntityTypeShape EntityType="efModel.cidade" Width="1.5" PointX="1.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.consumo" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.estado" Width="1.5" PointX="1.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.funcionario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.hospedagem" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.hospede" Width="1.5" PointX="0.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.pagamento" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.produto" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.quarto" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.reserva" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.servico" Width="1.5" PointX="3" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.servicosPrestado" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.tipoPagamento" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.tipoProduto" Width="1.5" PointX="3.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.tipoServico" Width="1.5" PointX="0.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="efModel.unidadeProduto" Width="1.5" PointX="3.75" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="efModel.fk_cidadeCodigo_funcionario" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_cidadeCodigo_hospede" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_estadoCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_hospCodigo_consumo" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_prodCodigo_consumo" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_funcCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_funcCodigo_hospedagem" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_hospCodigo_hospedagem" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_hospCodigo_pagamento" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_hospCodigo_svPrestados" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_quartoCodigo_hospedagem" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_reservaCodigo_hospedagem" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_hospCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_tipoCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_unidadeCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_quartoCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_servCodigo_servPrest" ManuallyRouted="false" />
+        <AssociationConnector Association="efModel.fk_tipoCodigo_servico" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
