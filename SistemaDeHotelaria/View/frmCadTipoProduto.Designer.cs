@@ -114,6 +114,7 @@
             this.Controls.Add(this.lblDescricao);
             this.Controls.Add(this.lblCodigo);
             this.Name = "frmCadTipoProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Tipo de Produto";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

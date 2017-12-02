@@ -23,7 +23,7 @@ namespace SistemaDeHotelaria.Controller
 
                 using (Entities ef = new Entities())
                 {
-                    listaCidade = ef.cidades.ToList();
+                    listaCidade = ef.cidade.ToList();
                 }
 
                 return listaCidade;

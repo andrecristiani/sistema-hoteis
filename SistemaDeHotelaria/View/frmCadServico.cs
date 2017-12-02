@@ -16,6 +16,7 @@ namespace SistemaDeHotelaria.View
         Servico servico = new Servico();
         List<TipoServico> listaTiposServico;
         int alterar = 0;
+        string acumulado;
         public frmCadServico()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace SistemaDeHotelaria.View
             atualizarLista();
             carregarCombobox();
             cmbTipoPesquisa.SelectedIndex = 1;
+            Servico.carregarListaServicos();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -67,6 +69,7 @@ namespace SistemaDeHotelaria.View
                 }
                 desabilitarCampos();
                 setarDados();
+                atualizarLista();
             }
         }
 
@@ -75,7 +78,7 @@ namespace SistemaDeHotelaria.View
         {
             servico.Codigo = int.Parse(txtCodigo.Text);
             servico.Descricao = txtDescricao.Text;
-            servico.Valor = float.Parse(txtValor.Text);
+            servico.Valor = Convert.ToDouble(txtValor.Text.Replace("R$", string.Empty));
             servico.Tipo = 1;//(cmbTipo.SelectedIndex + 1);
         }
 
@@ -83,14 +86,19 @@ namespace SistemaDeHotelaria.View
         {
             txtCodigo.Text = servico.Codigo.ToString();
             txtDescricao.Text = servico.Descricao;
-            txtValor.Text = servico.Valor.ToString();
+            txtValor.Text =servico.Valor.ToString();
             cmbTipo.SelectedIndex = servico.Tipo - 1;
         }
 
         private void atualizarLista()
         {
-            Servico.carregarListaServicos();
-            dgvProduto.DataSource = new BindingList<Servico>(Servico.listaServicos);
+            using (Entities ef = new Entities())
+            {
+                var dados = (from s in ef.servico
+                             join t in ef.tipoServico on s.tipoCodigo equals t.tipoCodigo
+                             select new { Código = s.servCodigo, Descrição = s.servescricao, Valor = s.servValor, Tipo = t.tipoDescricao}).ToList();
+                dgvProduto.DataSource = dados;
+            }
         }
 
         private void desabilitarCampos()
@@ -206,6 +214,38 @@ namespace SistemaDeHotelaria.View
             alterar = 1;
             habilitarCampos();
             txtDescricao.Focus();
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+            string valor = txtValor.Text
+                         .Replace(".", string.Empty)
+                         .Replace(",", string.Empty)
+                         .Replace(" ", string.Empty)
+                         .Replace("R$", "")
+                         .Trim();
+            if (valor.Length > 0)
+            {
+                string ultimo = valor.Substring(0, 1);
+                acumulado += ultimo;
+
+                decimal valorDec;
+
+                if (decimal.TryParse(acumulado, out valorDec))
+                {
+                    txtValor.TextChanged -= txtValor_TextChanged;
+
+                    txtValor.Text = string.Format("{0:C2}", valorDec / 100);
+                    txtValor.TextChanged += txtValor_TextChanged;
+                }
+                else
+                {
+                    txtValor.Text = string.Empty;
+                    acumulado = string.Empty;
+                }
+            }
+            else
+                acumulado = string.Empty;
         }
     }
 }

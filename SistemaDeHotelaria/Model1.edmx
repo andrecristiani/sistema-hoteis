@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="efModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EntityFramework.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cidade">
           <Key>
             <PropertyRef Name="cidadeCodigo" />
@@ -55,25 +55,26 @@
           <Key>
             <PropertyRef Name="hospedagemCodigo" />
           </Key>
-          <Property Name="hospedagemCodigo" Type="int" Nullable="false" />
+          <Property Name="hospedagemCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="hospCheckin" Type="datetime" Nullable="false" />
           <Property Name="hospCheckout" Type="datetime" Nullable="false" />
           <Property Name="funcCodigo" Type="int" Nullable="false" />
           <Property Name="reservaCodigo" Type="int" />
           <Property Name="hospCodigo" Type="int" Nullable="false" />
           <Property Name="quartoCodigo" Type="int" Nullable="false" />
+          <Property Name="valorTotal" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="hospede">
           <Key>
             <PropertyRef Name="hospCodigo" />
           </Key>
-          <Property Name="hospCodigo" Type="int" Nullable="false" />
+          <Property Name="hospCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="hospNome" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="hospCpf" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="hospTelefone" Type="varchar" MaxLength="15" />
           <Property Name="hospCelular" Type="varchar" MaxLength="15" />
           <Property Name="hospLogradouro" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="hospNumero" Type="int" Nullable="false" />
+          <Property Name="hospNumero" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="hospBairro" Type="varchar" MaxLength="30" />
           <Property Name="hospCep" Type="varchar" MaxLength="12" />
           <Property Name="hospComplemento" Type="varchar" MaxLength="50" />
@@ -93,7 +94,7 @@
           </Key>
           <Property Name="prodCodigo" Type="int" Nullable="false" />
           <Property Name="prodDescricao" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="prodValor" Type="float" />
+          <Property Name="prodValor" Type="decimal" Precision="18" Scale="0" />
           <Property Name="tipoCodigo" Type="int" Nullable="false" />
           <Property Name="unidadeCodigo" Type="int" Nullable="false" />
         </EntityType>
@@ -114,7 +115,7 @@
           <Key>
             <PropertyRef Name="reservaCodigo" />
           </Key>
-          <Property Name="reservaCodigo" Type="int" Nullable="false" />
+          <Property Name="reservaCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="reservaCheckin" Type="datetime" Nullable="false" />
           <Property Name="reservaCheckout" Type="datetime" Nullable="false" />
           <Property Name="quartoCodigo" Type="int" Nullable="false" />
@@ -126,7 +127,7 @@
             <PropertyRef Name="servCodigo" />
           </Key>
           <Property Name="servCodigo" Type="int" Nullable="false" />
-          <Property Name="servDescricao" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="servescricao" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="servValor" Type="float" Nullable="false" />
           <Property Name="tipoCodigo" Type="int" Nullable="false" />
         </EntityType>
@@ -385,7 +386,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="efModelStoreContainer">
+        <EntityContainer Name="EntityFrameworkStoreContainer">
           <EntitySet Name="cidade" EntityType="Self.cidade" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="consumo" EntityType="Self.consumo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="estado" EntityType="Self.estado" Schema="dbo" store:Type="Tables" />
@@ -479,7 +480,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="efModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EntityFramework" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="cidade">
           <Key>
             <PropertyRef Name="cidadeCodigo" />
@@ -487,8 +488,8 @@
           <Property Name="cidadeCodigo" Type="Int32" Nullable="false" />
           <Property Name="cidadeNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estadoCodigo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="funcionarios" Relationship="Self.fk_cidadeCodigo_funcionario" FromRole="cidade" ToRole="funcionario" />
-          <NavigationProperty Name="hospedes" Relationship="Self.fk_cidadeCodigo_hospede" FromRole="cidade" ToRole="hospede" />
+          <NavigationProperty Name="funcionario" Relationship="Self.fk_cidadeCodigo_funcionario" FromRole="cidade" ToRole="funcionario" />
+          <NavigationProperty Name="hospede" Relationship="Self.fk_cidadeCodigo_hospede" FromRole="cidade" ToRole="hospede" />
           <NavigationProperty Name="estado" Relationship="Self.fk_estadoCodigo" FromRole="cidade" ToRole="estado" />
         </EntityType>
         <EntityType Name="consumo">
@@ -510,7 +511,7 @@
           <Property Name="estadoCodigo" Type="Int32" Nullable="false" />
           <Property Name="estadoNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="estadoSigla" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="cidades" Relationship="Self.fk_estadoCodigo" FromRole="estado" ToRole="cidade" />
+          <NavigationProperty Name="cidade" Relationship="Self.fk_estadoCodigo" FromRole="estado" ToRole="cidade" />
         </EntityType>
         <EntityType Name="funcionario">
           <Key>
@@ -532,24 +533,25 @@
           <Property Name="funcSenha" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="funcStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="cidade" Relationship="Self.fk_cidadeCodigo_funcionario" FromRole="funcionario" ToRole="cidade" />
-          <NavigationProperty Name="reservas" Relationship="Self.fk_funcCodigo" FromRole="funcionario" ToRole="reserva" />
-          <NavigationProperty Name="hospedagems" Relationship="Self.fk_funcCodigo_hospedagem" FromRole="funcionario" ToRole="hospedagem" />
+          <NavigationProperty Name="reserva" Relationship="Self.fk_funcCodigo" FromRole="funcionario" ToRole="reserva" />
+          <NavigationProperty Name="hospedagem" Relationship="Self.fk_funcCodigo_hospedagem" FromRole="funcionario" ToRole="hospedagem" />
         </EntityType>
         <EntityType Name="hospedagem">
           <Key>
             <PropertyRef Name="hospedagemCodigo" />
           </Key>
-          <Property Name="hospedagemCodigo" Type="Int32" Nullable="false" />
+          <Property Name="hospedagemCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="hospCheckin" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="hospCheckout" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="funcCodigo" Type="Int32" Nullable="false" />
           <Property Name="reservaCodigo" Type="Int32" />
           <Property Name="hospCodigo" Type="Int32" Nullable="false" />
           <Property Name="quartoCodigo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="consumoes" Relationship="Self.fk_hospCodigo_consumo" FromRole="hospedagem" ToRole="consumo" />
+          <Property Name="valorTotal" Type="Double" Nullable="false" />
+          <NavigationProperty Name="consumo" Relationship="Self.fk_hospCodigo_consumo" FromRole="hospedagem" ToRole="consumo" />
           <NavigationProperty Name="funcionario" Relationship="Self.fk_funcCodigo_hospedagem" FromRole="hospedagem" ToRole="funcionario" />
           <NavigationProperty Name="hospede" Relationship="Self.fk_hospCodigo_hospedagem" FromRole="hospedagem" ToRole="hospede" />
-          <NavigationProperty Name="pagamentoes" Relationship="Self.fk_hospCodigo_pagamento" FromRole="hospedagem" ToRole="pagamento" />
+          <NavigationProperty Name="pagamento" Relationship="Self.fk_hospCodigo_pagamento" FromRole="hospedagem" ToRole="pagamento" />
           <NavigationProperty Name="servicosPrestados" Relationship="Self.fk_hospCodigo_svPrestados" FromRole="hospedagem" ToRole="servicosPrestados" />
           <NavigationProperty Name="quarto" Relationship="Self.fk_quartoCodigo_hospedagem" FromRole="hospedagem" ToRole="quarto" />
           <NavigationProperty Name="reserva" Relationship="Self.fk_reservaCodigo_hospedagem" FromRole="hospedagem" ToRole="reserva" />
@@ -558,20 +560,20 @@
           <Key>
             <PropertyRef Name="hospCodigo" />
           </Key>
-          <Property Name="hospCodigo" Type="Int32" Nullable="false" />
+          <Property Name="hospCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="hospNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="hospCpf" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="hospTelefone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="hospCelular" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="hospLogradouro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="hospNumero" Type="Int32" Nullable="false" />
+          <Property Name="hospNumero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="hospBairro" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="hospCep" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="hospComplemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cidadeCodigo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="cidade" Relationship="Self.fk_cidadeCodigo_hospede" FromRole="hospede" ToRole="cidade" />
-          <NavigationProperty Name="hospedagems" Relationship="Self.fk_hospCodigo_hospedagem" FromRole="hospede" ToRole="hospedagem" />
-          <NavigationProperty Name="reservas" Relationship="Self.fk_hospCodigo" FromRole="hospede" ToRole="reserva" />
+          <NavigationProperty Name="hospedagem" Relationship="Self.fk_hospCodigo_hospedagem" FromRole="hospede" ToRole="hospedagem" />
+          <NavigationProperty Name="reserva" Relationship="Self.fk_hospCodigo" FromRole="hospede" ToRole="reserva" />
         </EntityType>
         <EntityType Name="pagamento">
           <Key>
@@ -588,10 +590,10 @@
           </Key>
           <Property Name="prodCodigo" Type="Int32" Nullable="false" />
           <Property Name="prodDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="prodValor" Type="Double" />
+          <Property Name="prodValor" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
           <Property Name="unidadeCodigo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="consumoes" Relationship="Self.fk_prodCodigo_consumo" FromRole="produto" ToRole="consumo" />
+          <NavigationProperty Name="consumo" Relationship="Self.fk_prodCodigo_consumo" FromRole="produto" ToRole="consumo" />
           <NavigationProperty Name="tipoProduto" Relationship="Self.fk_tipoCodigo" FromRole="produto" ToRole="tipoProduto" />
           <NavigationProperty Name="unidadeProduto" Relationship="Self.fk_unidadeCodigo" FromRole="produto" ToRole="unidadeProduto" />
         </EntityType>
@@ -607,21 +609,21 @@
           <Property Name="quartoRamal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="quartoObservacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="quartoValor" Type="Double" />
-          <NavigationProperty Name="hospedagems" Relationship="Self.fk_quartoCodigo_hospedagem" FromRole="quarto" ToRole="hospedagem" />
-          <NavigationProperty Name="reservas" Relationship="Self.fk_quartoCodigo" FromRole="quarto" ToRole="reserva" />
+          <NavigationProperty Name="hospedagem" Relationship="Self.fk_quartoCodigo_hospedagem" FromRole="quarto" ToRole="hospedagem" />
+          <NavigationProperty Name="reserva" Relationship="Self.fk_quartoCodigo" FromRole="quarto" ToRole="reserva" />
         </EntityType>
         <EntityType Name="reserva">
           <Key>
             <PropertyRef Name="reservaCodigo" />
           </Key>
-          <Property Name="reservaCodigo" Type="Int32" Nullable="false" />
+          <Property Name="reservaCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="reservaCheckin" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="reservaCheckout" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="quartoCodigo" Type="Int32" Nullable="false" />
           <Property Name="hospCodigo" Type="Int32" Nullable="false" />
           <Property Name="funcCodigo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="funcionario" Relationship="Self.fk_funcCodigo" FromRole="reserva" ToRole="funcionario" />
-          <NavigationProperty Name="hospedagems" Relationship="Self.fk_reservaCodigo_hospedagem" FromRole="reserva" ToRole="hospedagem" />
+          <NavigationProperty Name="hospedagem" Relationship="Self.fk_reservaCodigo_hospedagem" FromRole="reserva" ToRole="hospedagem" />
           <NavigationProperty Name="hospede" Relationship="Self.fk_hospCodigo" FromRole="reserva" ToRole="hospede" />
           <NavigationProperty Name="quarto" Relationship="Self.fk_quartoCodigo" FromRole="reserva" ToRole="quarto" />
         </EntityType>
@@ -630,13 +632,13 @@
             <PropertyRef Name="servCodigo" />
           </Key>
           <Property Name="servCodigo" Type="Int32" Nullable="false" />
-          <Property Name="servDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="servescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="servValor" Type="Double" Nullable="false" />
           <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="servicosPrestados" Relationship="Self.fk_servCodigo_servPrest" FromRole="servico" ToRole="servicosPrestados" />
           <NavigationProperty Name="tipoServico" Relationship="Self.fk_tipoCodigo_servico" FromRole="servico" ToRole="tipoServico" />
         </EntityType>
-        <EntityType Name="servicosPrestado">
+        <EntityType Name="servicosPrestados">
           <Key>
             <PropertyRef Name="servPrestadoCodigo" />
           </Key>
@@ -661,7 +663,7 @@
           </Key>
           <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
           <Property Name="tipoDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="produtoes" Relationship="Self.fk_tipoCodigo" FromRole="tipoProduto" ToRole="produto" />
+          <NavigationProperty Name="produto" Relationship="Self.fk_tipoCodigo" FromRole="tipoProduto" ToRole="produto" />
         </EntityType>
         <EntityType Name="tipoServico">
           <Key>
@@ -669,7 +671,7 @@
           </Key>
           <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
           <Property Name="tipoDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="servicoes" Relationship="Self.fk_tipoCodigo_servico" FromRole="tipoServico" ToRole="servico" />
+          <NavigationProperty Name="servico" Relationship="Self.fk_tipoCodigo_servico" FromRole="tipoServico" ToRole="servico" />
         </EntityType>
         <EntityType Name="unidadeProduto">
           <Key>
@@ -678,7 +680,7 @@
           <Property Name="unidadeCodigo" Type="Int32" Nullable="false" />
           <Property Name="unidadeDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="unidadeResumo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="produtoes" Relationship="Self.fk_unidadeCodigo" FromRole="unidadeProduto" ToRole="produto" />
+          <NavigationProperty Name="produto" Relationship="Self.fk_unidadeCodigo" FromRole="unidadeProduto" ToRole="produto" />
         </EntityType>
         <Association Name="fk_cidadeCodigo_funcionario">
           <End Role="cidade" Type="Self.cidade" Multiplicity="1" />
@@ -790,7 +792,7 @@
         </Association>
         <Association Name="fk_hospCodigo_svPrestados">
           <End Role="hospedagem" Type="Self.hospedagem" Multiplicity="1" />
-          <End Role="servicosPrestados" Type="Self.servicosPrestado" Multiplicity="*" />
+          <End Role="servicosPrestados" Type="Self.servicosPrestados" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="hospedagem">
               <PropertyRef Name="hospedagemCodigo" />
@@ -874,7 +876,7 @@
         </Association>
         <Association Name="fk_servCodigo_servPrest">
           <End Role="servico" Type="Self.servico" Multiplicity="1" />
-          <End Role="servicosPrestados" Type="Self.servicosPrestado" Multiplicity="*" />
+          <End Role="servicosPrestados" Type="Self.servicosPrestados" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="servico">
               <PropertyRef Name="servCodigo" />
@@ -897,93 +899,93 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="cidades" EntityType="Self.cidade" />
-          <EntitySet Name="consumoes" EntityType="Self.consumo" />
-          <EntitySet Name="estadoes" EntityType="Self.estado" />
-          <EntitySet Name="funcionarios" EntityType="Self.funcionario" />
-          <EntitySet Name="hospedagems" EntityType="Self.hospedagem" />
-          <EntitySet Name="hospedes" EntityType="Self.hospede" />
-          <EntitySet Name="pagamentoes" EntityType="Self.pagamento" />
-          <EntitySet Name="produtoes" EntityType="Self.produto" />
-          <EntitySet Name="quartos" EntityType="Self.quarto" />
-          <EntitySet Name="reservas" EntityType="Self.reserva" />
-          <EntitySet Name="servicoes" EntityType="Self.servico" />
-          <EntitySet Name="servicosPrestados" EntityType="Self.servicosPrestado" />
-          <EntitySet Name="tipoPagamentoes" EntityType="Self.tipoPagamento" />
-          <EntitySet Name="tipoProdutoes" EntityType="Self.tipoProduto" />
-          <EntitySet Name="tipoServicoes" EntityType="Self.tipoServico" />
-          <EntitySet Name="unidadeProdutoes" EntityType="Self.unidadeProduto" />
+          <EntitySet Name="cidade" EntityType="Self.cidade" />
+          <EntitySet Name="consumo" EntityType="Self.consumo" />
+          <EntitySet Name="estado" EntityType="Self.estado" />
+          <EntitySet Name="funcionario" EntityType="Self.funcionario" />
+          <EntitySet Name="hospedagem" EntityType="Self.hospedagem" />
+          <EntitySet Name="hospede" EntityType="Self.hospede" />
+          <EntitySet Name="pagamento" EntityType="Self.pagamento" />
+          <EntitySet Name="produto" EntityType="Self.produto" />
+          <EntitySet Name="quarto" EntityType="Self.quarto" />
+          <EntitySet Name="reserva" EntityType="Self.reserva" />
+          <EntitySet Name="servico" EntityType="Self.servico" />
+          <EntitySet Name="servicosPrestados" EntityType="Self.servicosPrestados" />
+          <EntitySet Name="tipoPagamento" EntityType="Self.tipoPagamento" />
+          <EntitySet Name="tipoProduto" EntityType="Self.tipoProduto" />
+          <EntitySet Name="tipoServico" EntityType="Self.tipoServico" />
+          <EntitySet Name="unidadeProduto" EntityType="Self.unidadeProduto" />
           <AssociationSet Name="fk_cidadeCodigo_funcionario" Association="Self.fk_cidadeCodigo_funcionario">
-            <End Role="cidade" EntitySet="cidades" />
-            <End Role="funcionario" EntitySet="funcionarios" />
+            <End Role="cidade" EntitySet="cidade" />
+            <End Role="funcionario" EntitySet="funcionario" />
           </AssociationSet>
           <AssociationSet Name="fk_cidadeCodigo_hospede" Association="Self.fk_cidadeCodigo_hospede">
-            <End Role="cidade" EntitySet="cidades" />
-            <End Role="hospede" EntitySet="hospedes" />
+            <End Role="cidade" EntitySet="cidade" />
+            <End Role="hospede" EntitySet="hospede" />
           </AssociationSet>
           <AssociationSet Name="fk_estadoCodigo" Association="Self.fk_estadoCodigo">
-            <End Role="estado" EntitySet="estadoes" />
-            <End Role="cidade" EntitySet="cidades" />
+            <End Role="estado" EntitySet="estado" />
+            <End Role="cidade" EntitySet="cidade" />
           </AssociationSet>
           <AssociationSet Name="fk_hospCodigo_consumo" Association="Self.fk_hospCodigo_consumo">
-            <End Role="hospedagem" EntitySet="hospedagems" />
-            <End Role="consumo" EntitySet="consumoes" />
+            <End Role="hospedagem" EntitySet="hospedagem" />
+            <End Role="consumo" EntitySet="consumo" />
           </AssociationSet>
           <AssociationSet Name="fk_prodCodigo_consumo" Association="Self.fk_prodCodigo_consumo">
-            <End Role="produto" EntitySet="produtoes" />
-            <End Role="consumo" EntitySet="consumoes" />
+            <End Role="produto" EntitySet="produto" />
+            <End Role="consumo" EntitySet="consumo" />
           </AssociationSet>
           <AssociationSet Name="fk_funcCodigo" Association="Self.fk_funcCodigo">
-            <End Role="funcionario" EntitySet="funcionarios" />
-            <End Role="reserva" EntitySet="reservas" />
+            <End Role="funcionario" EntitySet="funcionario" />
+            <End Role="reserva" EntitySet="reserva" />
           </AssociationSet>
           <AssociationSet Name="fk_funcCodigo_hospedagem" Association="Self.fk_funcCodigo_hospedagem">
-            <End Role="funcionario" EntitySet="funcionarios" />
-            <End Role="hospedagem" EntitySet="hospedagems" />
+            <End Role="funcionario" EntitySet="funcionario" />
+            <End Role="hospedagem" EntitySet="hospedagem" />
           </AssociationSet>
           <AssociationSet Name="fk_hospCodigo_hospedagem" Association="Self.fk_hospCodigo_hospedagem">
-            <End Role="hospede" EntitySet="hospedes" />
-            <End Role="hospedagem" EntitySet="hospedagems" />
+            <End Role="hospede" EntitySet="hospede" />
+            <End Role="hospedagem" EntitySet="hospedagem" />
           </AssociationSet>
           <AssociationSet Name="fk_hospCodigo_pagamento" Association="Self.fk_hospCodigo_pagamento">
-            <End Role="hospedagem" EntitySet="hospedagems" />
-            <End Role="pagamento" EntitySet="pagamentoes" />
+            <End Role="hospedagem" EntitySet="hospedagem" />
+            <End Role="pagamento" EntitySet="pagamento" />
           </AssociationSet>
           <AssociationSet Name="fk_hospCodigo_svPrestados" Association="Self.fk_hospCodigo_svPrestados">
-            <End Role="hospedagem" EntitySet="hospedagems" />
+            <End Role="hospedagem" EntitySet="hospedagem" />
             <End Role="servicosPrestados" EntitySet="servicosPrestados" />
           </AssociationSet>
           <AssociationSet Name="fk_quartoCodigo_hospedagem" Association="Self.fk_quartoCodigo_hospedagem">
-            <End Role="quarto" EntitySet="quartos" />
-            <End Role="hospedagem" EntitySet="hospedagems" />
+            <End Role="quarto" EntitySet="quarto" />
+            <End Role="hospedagem" EntitySet="hospedagem" />
           </AssociationSet>
           <AssociationSet Name="fk_reservaCodigo_hospedagem" Association="Self.fk_reservaCodigo_hospedagem">
-            <End Role="reserva" EntitySet="reservas" />
-            <End Role="hospedagem" EntitySet="hospedagems" />
+            <End Role="reserva" EntitySet="reserva" />
+            <End Role="hospedagem" EntitySet="hospedagem" />
           </AssociationSet>
           <AssociationSet Name="fk_hospCodigo" Association="Self.fk_hospCodigo">
-            <End Role="hospede" EntitySet="hospedes" />
-            <End Role="reserva" EntitySet="reservas" />
+            <End Role="hospede" EntitySet="hospede" />
+            <End Role="reserva" EntitySet="reserva" />
           </AssociationSet>
           <AssociationSet Name="fk_tipoCodigo" Association="Self.fk_tipoCodigo">
-            <End Role="tipoProduto" EntitySet="tipoProdutoes" />
-            <End Role="produto" EntitySet="produtoes" />
+            <End Role="tipoProduto" EntitySet="tipoProduto" />
+            <End Role="produto" EntitySet="produto" />
           </AssociationSet>
           <AssociationSet Name="fk_unidadeCodigo" Association="Self.fk_unidadeCodigo">
-            <End Role="unidadeProduto" EntitySet="unidadeProdutoes" />
-            <End Role="produto" EntitySet="produtoes" />
+            <End Role="unidadeProduto" EntitySet="unidadeProduto" />
+            <End Role="produto" EntitySet="produto" />
           </AssociationSet>
           <AssociationSet Name="fk_quartoCodigo" Association="Self.fk_quartoCodigo">
-            <End Role="quarto" EntitySet="quartos" />
-            <End Role="reserva" EntitySet="reservas" />
+            <End Role="quarto" EntitySet="quarto" />
+            <End Role="reserva" EntitySet="reserva" />
           </AssociationSet>
           <AssociationSet Name="fk_servCodigo_servPrest" Association="Self.fk_servCodigo_servPrest">
-            <End Role="servico" EntitySet="servicoes" />
+            <End Role="servico" EntitySet="servico" />
             <End Role="servicosPrestados" EntitySet="servicosPrestados" />
           </AssociationSet>
           <AssociationSet Name="fk_tipoCodigo_servico" Association="Self.fk_tipoCodigo_servico">
-            <End Role="tipoServico" EntitySet="tipoServicoes" />
-            <End Role="servico" EntitySet="servicoes" />
+            <End Role="tipoServico" EntitySet="tipoServico" />
+            <End Role="servico" EntitySet="servico" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -991,9 +993,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="efModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="cidades">
-            <EntityTypeMapping TypeName="efModel.cidade">
+        <EntityContainerMapping StorageEntityContainer="EntityFrameworkStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="cidade">
+            <EntityTypeMapping TypeName="EntityFramework.cidade">
               <MappingFragment StoreEntitySet="cidade">
                 <ScalarProperty Name="cidadeCodigo" ColumnName="cidadeCodigo" />
                 <ScalarProperty Name="cidadeNome" ColumnName="cidadeNome" />
@@ -1001,8 +1003,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="consumoes">
-            <EntityTypeMapping TypeName="efModel.consumo">
+          <EntitySetMapping Name="consumo">
+            <EntityTypeMapping TypeName="EntityFramework.consumo">
               <MappingFragment StoreEntitySet="consumo">
                 <ScalarProperty Name="consumoCodigo" ColumnName="consumoCodigo" />
                 <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
@@ -1012,8 +1014,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="estadoes">
-            <EntityTypeMapping TypeName="efModel.estado">
+          <EntitySetMapping Name="estado">
+            <EntityTypeMapping TypeName="EntityFramework.estado">
               <MappingFragment StoreEntitySet="estado">
                 <ScalarProperty Name="estadoCodigo" ColumnName="estadoCodigo" />
                 <ScalarProperty Name="estadoNome" ColumnName="estadoNome" />
@@ -1021,8 +1023,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="funcionarios">
-            <EntityTypeMapping TypeName="efModel.funcionario">
+          <EntitySetMapping Name="funcionario">
+            <EntityTypeMapping TypeName="EntityFramework.funcionario">
               <MappingFragment StoreEntitySet="funcionario">
                 <ScalarProperty Name="funcCodigo" ColumnName="funcCodigo" />
                 <ScalarProperty Name="funcNome" ColumnName="funcNome" />
@@ -1042,8 +1044,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="hospedagems">
-            <EntityTypeMapping TypeName="efModel.hospedagem">
+          <EntitySetMapping Name="hospedagem">
+            <EntityTypeMapping TypeName="EntityFramework.hospedagem">
               <MappingFragment StoreEntitySet="hospedagem">
                 <ScalarProperty Name="hospedagemCodigo" ColumnName="hospedagemCodigo" />
                 <ScalarProperty Name="hospCheckin" ColumnName="hospCheckin" />
@@ -1052,11 +1054,12 @@
                 <ScalarProperty Name="reservaCodigo" ColumnName="reservaCodigo" />
                 <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
                 <ScalarProperty Name="quartoCodigo" ColumnName="quartoCodigo" />
+                <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="hospedes">
-            <EntityTypeMapping TypeName="efModel.hospede">
+          <EntitySetMapping Name="hospede">
+            <EntityTypeMapping TypeName="EntityFramework.hospede">
               <MappingFragment StoreEntitySet="hospede">
                 <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
                 <ScalarProperty Name="hospNome" ColumnName="hospNome" />
@@ -1072,8 +1075,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="pagamentoes">
-            <EntityTypeMapping TypeName="efModel.pagamento">
+          <EntitySetMapping Name="pagamento">
+            <EntityTypeMapping TypeName="EntityFramework.pagamento">
               <MappingFragment StoreEntitySet="pagamento">
                 <ScalarProperty Name="pagCodigo" ColumnName="pagCodigo" />
                 <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
@@ -1081,8 +1084,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="produtoes">
-            <EntityTypeMapping TypeName="efModel.produto">
+          <EntitySetMapping Name="produto">
+            <EntityTypeMapping TypeName="EntityFramework.produto">
               <MappingFragment StoreEntitySet="produto">
                 <ScalarProperty Name="prodCodigo" ColumnName="prodCodigo" />
                 <ScalarProperty Name="prodDescricao" ColumnName="prodDescricao" />
@@ -1092,8 +1095,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="quartos">
-            <EntityTypeMapping TypeName="efModel.quarto">
+          <EntitySetMapping Name="quarto">
+            <EntityTypeMapping TypeName="EntityFramework.quarto">
               <MappingFragment StoreEntitySet="quarto">
                 <ScalarProperty Name="quartoCodigo" ColumnName="quartoCodigo" />
                 <ScalarProperty Name="quartoDescricao" ColumnName="quartoDescricao" />
@@ -1106,8 +1109,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="reservas">
-            <EntityTypeMapping TypeName="efModel.reserva">
+          <EntitySetMapping Name="reserva">
+            <EntityTypeMapping TypeName="EntityFramework.reserva">
               <MappingFragment StoreEntitySet="reserva">
                 <ScalarProperty Name="reservaCodigo" ColumnName="reservaCodigo" />
                 <ScalarProperty Name="reservaCheckin" ColumnName="reservaCheckin" />
@@ -1118,18 +1121,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="servicoes">
-            <EntityTypeMapping TypeName="efModel.servico">
+          <EntitySetMapping Name="servico">
+            <EntityTypeMapping TypeName="EntityFramework.servico">
               <MappingFragment StoreEntitySet="servico">
                 <ScalarProperty Name="servCodigo" ColumnName="servCodigo" />
-                <ScalarProperty Name="servDescricao" ColumnName="servDescricao" />
+                <ScalarProperty Name="servescricao" ColumnName="servescricao" />
                 <ScalarProperty Name="servValor" ColumnName="servValor" />
                 <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="servicosPrestados">
-            <EntityTypeMapping TypeName="efModel.servicosPrestado">
+            <EntityTypeMapping TypeName="EntityFramework.servicosPrestados">
               <MappingFragment StoreEntitySet="servicosPrestados">
                 <ScalarProperty Name="servPrestadoCodigo" ColumnName="servPrestadoCodigo" />
                 <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
@@ -1139,32 +1142,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tipoPagamentoes">
-            <EntityTypeMapping TypeName="efModel.tipoPagamento">
+          <EntitySetMapping Name="tipoPagamento">
+            <EntityTypeMapping TypeName="EntityFramework.tipoPagamento">
               <MappingFragment StoreEntitySet="tipoPagamento">
                 <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
                 <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tipoProdutoes">
-            <EntityTypeMapping TypeName="efModel.tipoProduto">
+          <EntitySetMapping Name="tipoProduto">
+            <EntityTypeMapping TypeName="EntityFramework.tipoProduto">
               <MappingFragment StoreEntitySet="tipoProduto">
                 <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
                 <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tipoServicoes">
-            <EntityTypeMapping TypeName="efModel.tipoServico">
+          <EntitySetMapping Name="tipoServico">
+            <EntityTypeMapping TypeName="EntityFramework.tipoServico">
               <MappingFragment StoreEntitySet="tipoServico">
                 <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
                 <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="unidadeProdutoes">
-            <EntityTypeMapping TypeName="efModel.unidadeProduto">
+          <EntitySetMapping Name="unidadeProduto">
+            <EntityTypeMapping TypeName="EntityFramework.unidadeProduto">
               <MappingFragment StoreEntitySet="unidadeProduto">
                 <ScalarProperty Name="unidadeCodigo" ColumnName="unidadeCodigo" />
                 <ScalarProperty Name="unidadeDescricao" ColumnName="unidadeDescricao" />
@@ -1186,7 +1189,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

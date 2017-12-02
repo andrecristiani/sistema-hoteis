@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e6d1b3ae903847aaa3189d7e4d764830" Name="Diagram1" ZoomLevel="89">
+        <EntityTypeShape EntityType="EntityFramework.cidade" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.consumo" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.estado" Width="1.5" PointX="1.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.funcionario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.hospedagem" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.hospede" Width="1.5" PointX="0.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.pagamento" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.produto" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.quarto" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.reserva" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.servico" Width="1.5" PointX="3" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.servicosPrestados" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.tipoPagamento" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.tipoProduto" Width="1.5" PointX="3.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.tipoServico" Width="1.5" PointX="0.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityFramework.unidadeProduto" Width="1.5" PointX="3.75" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="EntityFramework.fk_cidadeCodigo_funcionario" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_cidadeCodigo_hospede" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_estadoCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_hospCodigo_consumo" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_prodCodigo_consumo" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_funcCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_funcCodigo_hospedagem" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_hospCodigo_hospedagem" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_hospCodigo_pagamento" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_hospCodigo_svPrestados" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_quartoCodigo_hospedagem" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_reservaCodigo_hospedagem" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_hospCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_tipoCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_unidadeCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_quartoCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_servCodigo_servPrest" ManuallyRouted="false" />
+        <AssociationConnector Association="EntityFramework.fk_tipoCodigo_servico" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

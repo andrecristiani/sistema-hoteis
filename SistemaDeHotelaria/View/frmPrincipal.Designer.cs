@@ -29,275 +29,146 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            this.panel = new System.Windows.Forms.Panel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCadHospedes = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.hóspedesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quartoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hóspedesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.hospedagensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel
+            // menuStrip1
             // 
-            this.panel.Controls.Add(this.groupBox4);
-            this.panel.Controls.Add(this.groupBox3);
-            this.panel.Controls.Add(this.groupBox2);
-            this.panel.Controls.Add(this.groupBox1);
-            this.panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel.Location = new System.Drawing.Point(0, 0);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1216, 88);
-            this.panel.TabIndex = 0;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Info;
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(16, 100);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hóspedesToolStripMenuItem,
+            this.quartoToolStripMenuItem,
+            this.hóspedesToolStripMenuItem1,
+            this.hospedagensToolStripMenuItem,
+            this.reservasToolStripMenuItem,
+            this.serviçosToolStripMenuItem,
+            this.produtosToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1216, 87);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // groupBox4
+            // hóspedesToolStripMenuItem
             // 
-            this.groupBox4.Controls.Add(this.button11);
-            this.groupBox4.Controls.Add(this.button12);
-            this.groupBox4.Controls.Add(this.button13);
-            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(822, 6);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(259, 76);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Consultas";
+            this.hóspedesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("hóspedesToolStripMenuItem.Image")));
+            this.hóspedesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.hóspedesToolStripMenuItem.Name = "hóspedesToolStripMenuItem";
+            this.hóspedesToolStripMenuItem.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.hóspedesToolStripMenuItem.Size = new System.Drawing.Size(99, 83);
+            this.hóspedesToolStripMenuItem.Text = "Funcionários";
+            this.hóspedesToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.hóspedesToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // button11
+            // quartoToolStripMenuItem
             // 
-            this.button11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(174, 17);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(78, 52);
-            this.button11.TabIndex = 2;
-            this.button11.Text = "Hóspedes";
-            this.button11.UseVisualStyleBackColor = true;
+            this.quartoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quartoToolStripMenuItem.Image")));
+            this.quartoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.quartoToolStripMenuItem.Name = "quartoToolStripMenuItem";
+            this.quartoToolStripMenuItem.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.quartoToolStripMenuItem.Size = new System.Drawing.Size(88, 83);
+            this.quartoToolStripMenuItem.Text = "Quartos";
+            this.quartoToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.quartoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.quartoToolStripMenuItem.Click += new System.EventHandler(this.quartoToolStripMenuItem_Click);
             // 
-            // button12
+            // hóspedesToolStripMenuItem1
             // 
-            this.button12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(90, 17);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(78, 52);
-            this.button12.TabIndex = 1;
-            this.button12.Text = "Quartos";
-            this.button12.UseVisualStyleBackColor = true;
+            this.hóspedesToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("hóspedesToolStripMenuItem1.Image")));
+            this.hóspedesToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.hóspedesToolStripMenuItem1.Name = "hóspedesToolStripMenuItem1";
+            this.hóspedesToolStripMenuItem1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.hóspedesToolStripMenuItem1.Size = new System.Drawing.Size(88, 83);
+            this.hóspedesToolStripMenuItem1.Text = "Hóspedes";
+            this.hóspedesToolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.hóspedesToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.hóspedesToolStripMenuItem1.Click += new System.EventHandler(this.hóspedesToolStripMenuItem1_Click);
             // 
-            // button13
+            // hospedagensToolStripMenuItem
             // 
-            this.button13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(6, 17);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(78, 52);
-            this.button13.TabIndex = 0;
-            this.button13.Text = "Funcionários";
-            this.button13.UseVisualStyleBackColor = true;
+            this.hospedagensToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("hospedagensToolStripMenuItem.Image")));
+            this.hospedagensToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.hospedagensToolStripMenuItem.Name = "hospedagensToolStripMenuItem";
+            this.hospedagensToolStripMenuItem.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.hospedagensToolStripMenuItem.Size = new System.Drawing.Size(103, 83);
+            this.hospedagensToolStripMenuItem.Text = "Hospedagens";
+            this.hospedagensToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.hospedagensToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.hospedagensToolStripMenuItem.Click += new System.EventHandler(this.hospedagensToolStripMenuItem_Click_1);
             // 
-            // groupBox3
+            // reservasToolStripMenuItem
             // 
-            this.groupBox3.Controls.Add(this.button10);
-            this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Controls.Add(this.button8);
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.button7);
-            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(294, 6);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(513, 76);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Hospedagem";
+            this.reservasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reservasToolStripMenuItem.Image")));
+            this.reservasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
+            this.reservasToolStripMenuItem.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(88, 83);
+            this.reservasToolStripMenuItem.Text = "Reservas";
+            this.reservasToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.reservasToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.reservasToolStripMenuItem.Click += new System.EventHandler(this.reservasToolStripMenuItem_Click);
             // 
-            // button10
+            // serviçosToolStripMenuItem
             // 
-            this.button10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(427, 17);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(78, 52);
-            this.button10.TabIndex = 5;
-            this.button10.Text = "Produtos";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.serviçosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("serviçosToolStripMenuItem.Image")));
+            this.serviçosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
+            this.serviçosToolStripMenuItem.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(88, 83);
+            this.serviçosToolStripMenuItem.Text = "Serviços";
+            this.serviçosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.serviçosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
             // 
-            // button9
+            // produtosToolStripMenuItem
             // 
-            this.button9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(343, 17);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(78, 52);
-            this.button9.TabIndex = 4;
-            this.button9.Text = "Consumos";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button8
-            // 
-            this.button8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(259, 17);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(78, 52);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "Pagamentos";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(175, 17);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(78, 52);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Hóspedes";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(91, 17);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(78, 52);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Quartos";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(7, 17);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(78, 52);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "Reservas";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(1098, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(90, 76);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Relatórios";
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(6, 18);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(78, 52);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Hospedagem";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnCadHospedes);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(22, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(259, 76);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cadastros";
-            // 
-            // btnCadHospedes
-            // 
-            this.btnCadHospedes.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadHospedes.Location = new System.Drawing.Point(174, 17);
-            this.btnCadHospedes.Name = "btnCadHospedes";
-            this.btnCadHospedes.Size = new System.Drawing.Size(78, 52);
-            this.btnCadHospedes.TabIndex = 2;
-            this.btnCadHospedes.Text = "Hóspedes";
-            this.btnCadHospedes.UseVisualStyleBackColor = true;
-            this.btnCadHospedes.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(90, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(78, 52);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Quartos";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(6, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 52);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Funcionários";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.produtosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("produtosToolStripMenuItem.Image")));
+            this.produtosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
+            this.produtosToolStripMenuItem.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(88, 83);
+            this.produtosToolStripMenuItem.Text = "Produtos";
+            this.produtosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.produtosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click_2);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1216, 495);
-            this.Controls.Add(this.panel);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Hotelaria";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
-            this.panel.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnCadHospedes;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem hóspedesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quartoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hóspedesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem hospedagensToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reservasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serviçosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
     }
 }

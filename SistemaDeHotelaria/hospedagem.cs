@@ -17,9 +17,9 @@ namespace SistemaDeHotelaria
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public hospedagem()
         {
-            this.consumoes = new HashSet<consumo>();
-            this.pagamentoes = new HashSet<pagamento>();
-            this.servicosPrestados = new HashSet<servicosPrestado>();
+            this.consumo = new HashSet<consumo>();
+            this.pagamento = new HashSet<pagamento>();
+            this.servicosPrestados = new HashSet<servicosPrestados>();
         }
     
         public int hospedagemCodigo { get; set; }
@@ -29,15 +29,16 @@ namespace SistemaDeHotelaria
         public Nullable<int> reservaCodigo { get; set; }
         public int hospCodigo { get; set; }
         public int quartoCodigo { get; set; }
+        public double valorTotal { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<consumo> consumoes { get; set; }
+        public virtual ICollection<consumo> consumo { get; set; }
         public virtual funcionario funcionario { get; set; }
         public virtual hospede hospede { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pagamento> pagamentoes { get; set; }
+        public virtual ICollection<pagamento> pagamento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<servicosPrestado> servicosPrestados { get; set; }
+        public virtual ICollection<servicosPrestados> servicosPrestados { get; set; }
         public virtual quarto quarto { get; set; }
         public virtual reserva reserva { get; set; }
     }

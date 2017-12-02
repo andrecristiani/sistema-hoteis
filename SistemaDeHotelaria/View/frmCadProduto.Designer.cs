@@ -77,7 +77,7 @@
             this.txtPesquisa.Location = new System.Drawing.Point(158, 20);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(213, 20);
-            this.txtPesquisa.TabIndex = 12;
+            this.txtPesquisa.TabIndex = 11;
             this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // cmbTipoPesquisa
@@ -89,7 +89,7 @@
             this.cmbTipoPesquisa.Location = new System.Drawing.Point(22, 19);
             this.cmbTipoPesquisa.Name = "cmbTipoPesquisa";
             this.cmbTipoPesquisa.Size = new System.Drawing.Size(121, 21);
-            this.cmbTipoPesquisa.TabIndex = 11;
+            this.cmbTipoPesquisa.TabIndex = 10;
             // 
             // dgvProduto
             // 
@@ -109,7 +109,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(243, 136);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 7;
+            this.btnAlterar.TabIndex = 6;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
@@ -120,7 +120,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(334, 136);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 8;
+            this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -131,7 +131,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(425, 136);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -142,7 +142,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(516, 136);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 10;
+            this.btnExcluir.TabIndex = 9;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -153,7 +153,7 @@
             this.btnNovo.Location = new System.Drawing.Point(152, 136);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
-            this.btnNovo.TabIndex = 6;
+            this.btnNovo.TabIndex = 5;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
@@ -180,6 +180,7 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(53, 20);
             this.txtValor.TabIndex = 2;
+            this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
             // 
             // label9
             // 
@@ -264,7 +265,7 @@
             this.cmbTipo.Location = new System.Drawing.Point(422, 98);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(93, 21);
-            this.cmbTipo.TabIndex = 69;
+            this.cmbTipo.TabIndex = 3;
             // 
             // cmbUnidade
             // 
@@ -272,7 +273,7 @@
             this.cmbUnidade.Location = new System.Drawing.Point(562, 98);
             this.cmbUnidade.Name = "cmbUnidade";
             this.cmbUnidade.Size = new System.Drawing.Size(90, 21);
-            this.cmbUnidade.TabIndex = 70;
+            this.cmbUnidade.TabIndex = 4;
             this.cmbUnidade.SelectedIndexChanged += new System.EventHandler(this.cmbUnidade_SelectedIndexChanged);
             // 
             // label4
@@ -287,9 +288,9 @@
             // btnNovoTipo
             // 
             this.btnNovoTipo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovoTipo.Image")));
-            this.btnNovoTipo.Location = new System.Drawing.Point(516, 91);
+            this.btnNovoTipo.Location = new System.Drawing.Point(516, 98);
             this.btnNovoTipo.Name = "btnNovoTipo";
-            this.btnNovoTipo.Size = new System.Drawing.Size(37, 28);
+            this.btnNovoTipo.Size = new System.Drawing.Size(21, 21);
             this.btnNovoTipo.TabIndex = 72;
             this.btnNovoTipo.UseVisualStyleBackColor = true;
             this.btnNovoTipo.Click += new System.EventHandler(this.btnNovoTipo_Click);
@@ -332,6 +333,7 @@
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.panel1);
             this.Name = "frmCadProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Produtos";
             this.Load += new System.EventHandler(this.frmCadProduto_Load);
             this.groupBox1.ResumeLayout(false);

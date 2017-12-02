@@ -13,7 +13,7 @@ namespace SistemaDeHotelaria.Controller
     {
         public int Codigo { get; set; }
         public String Descricao { get; set; }
-        public float Valor { get; set; }
+        public double Valor { get; set; }
         public int Tipo { get; set; }
         public int Unidade { get; set; }
 

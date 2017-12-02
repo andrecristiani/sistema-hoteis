@@ -13,7 +13,7 @@ namespace SistemaDeHotelaria.Controller
     {
         public int Codigo { get; set; }
         public string Descricao { get; set; }
-        public float Valor { get; set; }
+        public double Valor { get; set; }
         public int Tipo { get; set; }
 
         public static List<Servico> listaServicos = new List<Servico>();
@@ -34,7 +34,7 @@ namespace SistemaDeHotelaria.Controller
                 {
                     Servico servico = new Servico();
                     servico.Codigo = int.Parse(dtr["servCodigo"].ToString());
-                    servico.Descricao = dtr["servDescricao"].ToString();
+                    servico.Descricao = dtr["servescricao"].ToString();
                     servico.Valor = float.Parse(dtr["servValor"].ToString());
                     servico.Tipo = int.Parse(dtr["tipoCodigo"].ToString());
                     listaServicos.Add(servico);
@@ -54,7 +54,7 @@ namespace SistemaDeHotelaria.Controller
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings[StringBD.nomeString].ToString());
                 conn.Open();
 
-                string query = "insert into servico (servCodigo, servDescricao, servValor, tipoCodigo) values (@Codigo, @Descricao, @Valor, @TipoCodigo);";
+                string query = "insert into servico (servCodigo, servescricao, servValor, tipoCodigo) values (@Codigo, @Descricao, @Valor, @TipoCodigo);";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Codigo", servico.Codigo.ToString());
@@ -78,7 +78,7 @@ namespace SistemaDeHotelaria.Controller
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings[StringBD.nomeString].ToString());
                 conn.Open();
 
-                string query = "update produto set servDescricao = @Descricao, servValor = @Valor, tipoCodigo = @TipoCodigo where servCodigo = @Codigo;";
+                string query = "update produto set servescricao = @Descricao, servValor = @Valor, tipoCodigo = @TipoCodigo where servCodigo = @Codigo;";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Descricao", servico.Descricao.ToString());

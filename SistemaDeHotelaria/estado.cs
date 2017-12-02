@@ -17,7 +17,7 @@ namespace SistemaDeHotelaria
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public estado()
         {
-            this.cidades = new HashSet<cidade>();
+            this.cidade = new HashSet<cidade>();
         }
     
         public int estadoCodigo { get; set; }
@@ -25,6 +25,6 @@ namespace SistemaDeHotelaria
         public string estadoSigla { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cidade> cidades { get; set; }
+        public virtual ICollection<cidade> cidade { get; set; }
     }
 }

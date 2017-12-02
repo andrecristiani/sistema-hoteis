@@ -17,7 +17,7 @@ namespace SistemaDeHotelaria
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public reserva()
         {
-            this.hospedagems = new HashSet<hospedagem>();
+            this.hospedagem = new HashSet<hospedagem>();
         }
     
         public int reservaCodigo { get; set; }
@@ -29,7 +29,7 @@ namespace SistemaDeHotelaria
     
         public virtual funcionario funcionario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<hospedagem> hospedagems { get; set; }
+        public virtual ICollection<hospedagem> hospedagem { get; set; }
         public virtual hospede hospede { get; set; }
         public virtual quarto quarto { get; set; }
     }

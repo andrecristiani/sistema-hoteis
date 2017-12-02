@@ -15,8 +15,10 @@ namespace SistemaDeHotelaria.View
     {
         Produto produto = new Produto();
         List<TipoProduto> listaTipos = new List<TipoProduto>();
+        List<produto> listaProdutos = new List<produto>();
         List<UnidadeProduto> listaUnidades = new List<UnidadeProduto>();
         Boolean alterar = false;
+        string acumulado;
         public frmCadProduto()
         {
             InitializeComponent();
@@ -24,10 +26,12 @@ namespace SistemaDeHotelaria.View
             habilitarCampos();
             cmbTipoPesquisa.SelectedIndex = 1;
             carregarComboBox();
-            produto = Produto.listaProdutos.First<Produto>();
+            if(Produto.listaProdutos.Count > 0)
+                produto = Produto.listaProdutos.First<Produto>();
             setarDados();
             desabilitarCampos();
             cmbTipoPesquisa.SelectedIndex = 1;
+            Produto.carregarListaProdutos();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -41,7 +45,7 @@ namespace SistemaDeHotelaria.View
             {
                 MessageBox.Show("Campos valor vazio! Favor preencher.");
                 txtValor.Focus();
-            }else if (cmbTipo.SelectedText.Equals(string.Empty))
+            }else if (cmbTipo.Text.Equals(string.Empty))
             {
                 MessageBox.Show("Campos tipo vazio! Favor preencher.");
                 cmbTipo.Focus();
@@ -93,7 +97,7 @@ namespace SistemaDeHotelaria.View
         {
             produto.Codigo = int.Parse(txtCodigo.Text);
             produto.Descricao = txtDescricao.Text;
-            produto.Valor = float.Parse(txtValor.Text);
+            produto.Valor = Convert.ToDouble(txtValor.Text.Replace("R$", string.Empty));
             produto.Tipo = (cmbTipo.SelectedIndex+1);
             produto.Unidade = (cmbUnidade.SelectedIndex + 1);
         }
@@ -109,8 +113,14 @@ namespace SistemaDeHotelaria.View
 
         private void atualizarLista()
         {
-            Produto.carregarListaProdutos();
-            dgvProduto.DataSource = new BindingList<Produto>(Produto.listaProdutos);
+            using (Entities ef = new Entities())
+            {
+                var dados = (from p in ef.produto
+                             join t in ef.tipoProduto on p.tipoCodigo equals t.tipoCodigo
+                             join u in ef.unidadeProduto on p.unidadeCodigo equals u.unidadeCodigo
+                             select new { Código = p.prodCodigo, Descrição = p.prodDescricao, Valor = p.prodValor, Tipo = t.tipoDescricao, Unidade = u.unidadeDescricao, Resumo = u.unidadeResumo }).ToList();
+                dgvProduto.DataSource = dados;
+            }
         }
 
         private void desabilitarCampos()
@@ -258,6 +268,49 @@ namespace SistemaDeHotelaria.View
             frmCadUnidadeProduto frm = new frmCadUnidadeProduto(this);
             frm.Show();
             carregarComboBox();
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+            string valor = txtValor.Text
+                         .Replace(".", string.Empty)
+                         .Replace(",", string.Empty)
+                         .Replace(" ", string.Empty)
+                         .Replace("R$", "")
+                         .Trim();
+            if (valor.Length > 0)
+            {
+                string ultimo = valor.Substring(0, 1);
+                acumulado += ultimo;
+
+                decimal valorDec;
+
+                if (decimal.TryParse(acumulado, out valorDec))
+                {
+                    txtValor.TextChanged -= txtValor_TextChanged;
+
+                    txtValor.Text = string.Format("{0:C2}", valorDec / 100);
+                    txtValor.TextChanged += txtValor_TextChanged;
+                }
+                else
+                {
+                    txtValor.Text = string.Empty;
+                    acumulado = string.Empty;
+                }
+            }
+            else
+                acumulado = string.Empty;
+        }
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar);
+        }
+
+        private void txtValor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete)
+                txtValor.Text = string.Empty;
         }
     }
 }

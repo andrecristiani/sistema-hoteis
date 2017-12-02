@@ -17,13 +17,13 @@ namespace SistemaDeHotelaria
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tipoServico()
         {
-            this.servicoes = new HashSet<servico>();
+            this.servico = new HashSet<servico>();
         }
     
         public int tipoCodigo { get; set; }
         public string tipoDescricao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<servico> servicoes { get; set; }
+        public virtual ICollection<servico> servico { get; set; }
     }
 }

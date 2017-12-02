@@ -17,13 +17,13 @@ namespace SistemaDeHotelaria
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tipoProduto()
         {
-            this.produtoes = new HashSet<produto>();
+            this.produto = new HashSet<produto>();
         }
     
         public int tipoCodigo { get; set; }
         public string tipoDescricao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<produto> produtoes { get; set; }
+        public virtual ICollection<produto> produto { get; set; }
     }
 }

@@ -333,6 +333,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Name = "frmCadQuarto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Quartos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCadQuarto_FormClosing);
             this.Load += new System.EventHandler(this.frmCadQuarto_Load);

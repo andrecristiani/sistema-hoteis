@@ -17,8 +17,8 @@ namespace SistemaDeHotelaria
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public hospede()
         {
-            this.hospedagems = new HashSet<hospedagem>();
-            this.reservas = new HashSet<reserva>();
+            this.hospedagem = new HashSet<hospedagem>();
+            this.reserva = new HashSet<reserva>();
         }
     
         public int hospCodigo { get; set; }
@@ -27,7 +27,7 @@ namespace SistemaDeHotelaria
         public string hospTelefone { get; set; }
         public string hospCelular { get; set; }
         public string hospLogradouro { get; set; }
-        public int hospNumero { get; set; }
+        public string hospNumero { get; set; }
         public string hospBairro { get; set; }
         public string hospCep { get; set; }
         public string hospComplemento { get; set; }
@@ -35,8 +35,8 @@ namespace SistemaDeHotelaria
     
         public virtual cidade cidade { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<hospedagem> hospedagems { get; set; }
+        public virtual ICollection<hospedagem> hospedagem { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reserva> reservas { get; set; }
+        public virtual ICollection<reserva> reserva { get; set; }
     }
 }

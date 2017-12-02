@@ -12,7 +12,7 @@ namespace SistemaDeHotelaria
     using System;
     using System.Collections.Generic;
     
-    public partial class servicosPrestado
+    public partial class servicosPrestados
     {
         public int servPrestadoCodigo { get; set; }
         public double valorUnitario { get; set; }

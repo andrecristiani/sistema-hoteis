@@ -137,6 +137,7 @@
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.panel1);
             this.Name = "frmCadUnidadeProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadUnidadeProduto";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

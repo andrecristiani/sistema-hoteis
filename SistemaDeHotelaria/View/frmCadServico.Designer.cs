@@ -59,7 +59,7 @@
             this.txtDescricao.Location = new System.Drawing.Point(156, 94);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(196, 20);
-            this.txtDescricao.TabIndex = 38;
+            this.txtDescricao.TabIndex = 1;
             // 
             // label10
             // 
@@ -75,7 +75,8 @@
             this.txtValor.Location = new System.Drawing.Point(370, 94);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(53, 20);
-            this.txtValor.TabIndex = 36;
+            this.txtValor.TabIndex = 2;
+            this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
             // 
             // label9
             // 
@@ -200,7 +201,7 @@
             this.txtPesquisa.Location = new System.Drawing.Point(158, 19);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(213, 20);
-            this.txtPesquisa.TabIndex = 2;
+            this.txtPesquisa.TabIndex = 5;
             this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // cmbTipoPesquisa
@@ -212,7 +213,7 @@
             this.cmbTipoPesquisa.Location = new System.Drawing.Point(22, 19);
             this.cmbTipoPesquisa.Name = "cmbTipoPesquisa";
             this.cmbTipoPesquisa.Size = new System.Drawing.Size(121, 21);
-            this.cmbTipoPesquisa.TabIndex = 1;
+            this.cmbTipoPesquisa.TabIndex = 4;
             // 
             // dgvProduto
             // 
@@ -232,7 +233,7 @@
             this.cmbTipo.Location = new System.Drawing.Point(441, 93);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(93, 21);
-            this.cmbTipo.TabIndex = 70;
+            this.cmbTipo.TabIndex = 3;
             // 
             // btnNovoTipo
             // 
@@ -266,6 +267,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Name = "frmCadServico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Serviço";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

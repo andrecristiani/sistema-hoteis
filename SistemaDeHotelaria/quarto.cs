@@ -17,8 +17,8 @@ namespace SistemaDeHotelaria
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public quarto()
         {
-            this.hospedagems = new HashSet<hospedagem>();
-            this.reservas = new HashSet<reserva>();
+            this.hospedagem = new HashSet<hospedagem>();
+            this.reserva = new HashSet<reserva>();
         }
     
         public int quartoCodigo { get; set; }
@@ -31,8 +31,8 @@ namespace SistemaDeHotelaria
         public Nullable<double> quartoValor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<hospedagem> hospedagems { get; set; }
+        public virtual ICollection<hospedagem> hospedagem { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reserva> reservas { get; set; }
+        public virtual ICollection<reserva> reserva { get; set; }
     }
 }

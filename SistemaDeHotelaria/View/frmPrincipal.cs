@@ -16,6 +16,10 @@ namespace SistemaDeHotelaria
     public partial class frmPrincipal : Form
     {
         public static List<Panel> panels = new List<Panel>();
+        List<quarto> listaQuarto;
+        List<hospedagem> listaHospedagem;
+        List<reserva> listaReserva;
+        List<hospede> listaHospede;
         List<SituacaoQuarto> listaSituacao = new List<SituacaoQuarto>();
         public frmPrincipal()
         {
@@ -35,8 +39,7 @@ namespace SistemaDeHotelaria
 
         private void button3_Click(object sender, EventArgs e)
         {
-            frmHospedes frm = new frmHospedes();
-            frm.Show();
+            
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -53,8 +56,7 @@ namespace SistemaDeHotelaria
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmCadQuarto frm = new frmCadQuarto(this);
-            frm.Show();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -68,33 +70,109 @@ namespace SistemaDeHotelaria
             
         }
 
-        public void criarPainelOcupado(int larg, int alt, SituacaoQuarto st)
+        private void btnConsumo_Click(object sender, EventArgs e)
+        {
+            Button btnConsumo = (Button)sender;
+            int index = Convert.ToInt32(btnConsumo.Name.Substring(btnConsumo.Name.Length-1, 1));
+            if (btnConsumo.Name.Contains("btnCancelar"))
+            {
+                if (MessageBox.Show("Deseja realmente cancelar a reserva do quarto " + (index+1) + " em nome de " + listaSituacao[index].NomeHospede +"?", "Aviso!",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (Entities et = new Entities())
+                        {
+                            reserva re = listaReserva.Find(r => r.reservaCodigo.Equals(listaSituacao[index].Reserva));
+                            et.reserva.Attach(re);
+                            et.Entry(re).State = System.Data.Entity.EntityState.Deleted;
+                            et.SaveChanges();
+                            limparPanels();
+                            criarPanels();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao cancelar reserva! Erro: " + ex.Message);
+                    }
+                }
+
+            }
+
+            if (btnConsumo.Name.Contains("btnEstadia"))
+            {
+                SituacaoQuarto sit = listaSituacao[index];
+                frmPagamento frm = new frmPagamento(sit);
+                frm.ShowDialog();
+
+            }
+
+            if (btnConsumo.Name.Contains("btnConsumo"))
+            {
+                SituacaoQuarto sit = listaSituacao[index];
+                frmVinProdutos frm = new frmVinProdutos(sit);
+                frm.ShowDialog();
+
+            }
+
+            if (btnConsumo.Name.Contains("btnServico"))
+            {
+                SituacaoQuarto sit = listaSituacao[index];
+                frmVinServico frm = new frmVinServico(sit);
+                frm.ShowDialog();
+            }
+
+            if (btnConsumo.Name.Contains("btnHospedar"))
+            {
+                frmCadHospedagem frm = new frmCadHospedagem(this, listaSituacao[index]);
+                frm.ShowDialog();
+            }
+
+            if (btnConsumo.Name.Contains("btnReservar"))
+            {
+                frmCadReserva frm = new frmCadReserva(this, listaSituacao[index]);
+                frm.ShowDialog();
+
+            }
+            if (btnConsumo.Name.Contains("btnCriar"))
+            {
+                MessageBox.Show(listaSituacao[index].Reserva.ToString());
+                frmCadHospedagem frm = new frmCadHospedagem(this, listaSituacao[index]);
+                frm.ShowDialog();
+            }
+        }
+
+        public void criarPainelOcupado(int larg, int alt, SituacaoQuarto st, int index)
         {
             Panel panel1 = new Panel();
 
             Button btnEstadia = new Button();
             btnEstadia.Location = new System.Drawing.Point(29, 139);
-            btnEstadia.Name = "button14";
+            btnEstadia.Name = "btnEstadia" + index;
             btnEstadia.Size = new System.Drawing.Size(105, 23);
             btnEstadia.TabIndex = 5;
             btnEstadia.Text = "Finalizar Estadia";
             btnEstadia.UseVisualStyleBackColor = true;
+            btnEstadia.Click += new System.EventHandler(this.btnConsumo_Click);
 
             Button btnConsumo = new Button();
             btnConsumo.Location = new System.Drawing.Point(7, 110);
-            btnConsumo.Name = "button16";
+            btnConsumo.Name = "btnConsumo" + index;
             btnConsumo.Size = new System.Drawing.Size(70, 23);
             btnConsumo.TabIndex = 3;
             btnConsumo.Text = "Consumos";
             btnConsumo.UseVisualStyleBackColor = true;
+            btnConsumo.Click += new System.EventHandler(this.btnConsumo_Click);
 
             Button btnServico = new Button();
             btnServico.Location = new System.Drawing.Point(85, 110);
-            btnServico.Name = "button15";
+            btnServico.Name = "btnServico" + index;
             btnServico.Size = new System.Drawing.Size(70, 23);
             btnServico.TabIndex = 4;
             btnServico.Text = "Serviços";
             btnServico.UseVisualStyleBackColor = true;
+            btnServico.Click += new System.EventHandler(this.btnConsumo_Click);
 
             Label lblPeriodo = new Label();
             lblPeriodo.AutoSize = true;
@@ -147,13 +225,13 @@ namespace SistemaDeHotelaria
             panels.Add(panel1);
         }
 
-        public void criarPanelReservado(int larg, int alt, SituacaoQuarto st)
+        public void criarPanelReservado(int larg, int alt, SituacaoQuarto st, int index)
         {
             Panel panelReservado = new Panel();
 
             Label lblHospedeReserva = new Label();
             lblHospedeReserva.AutoSize = true;
-            lblHospedeReserva.Location = new System.Drawing.Point(42, 76);
+            lblHospedeReserva.Location = new System.Drawing.Point(42, 60);
             lblHospedeReserva.Name = "lblHospedeReserva";
             lblHospedeReserva.Size = new System.Drawing.Size(96, 13);
             lblHospedeReserva.TabIndex = 6;
@@ -161,7 +239,7 @@ namespace SistemaDeHotelaria
 
             Label lblPeriodoReserva = new Label();
             lblPeriodoReserva.AutoSize = true;
-            lblPeriodoReserva.Location = new System.Drawing.Point(18, 112);
+            lblPeriodoReserva.Location = new System.Drawing.Point(18, 90);
             lblPeriodoReserva.Name = "lblPeriodoReserva";
             lblPeriodoReserva.Size = new System.Drawing.Size(135, 13);
             lblPeriodoReserva.TabIndex = 3;
@@ -169,7 +247,7 @@ namespace SistemaDeHotelaria
 
             Label lblEstadiaReserva = new Label();
             lblEstadiaReserva.AutoSize = true;
-            lblEstadiaReserva.Location = new System.Drawing.Point(63, 99);
+            lblEstadiaReserva.Location = new System.Drawing.Point(63, 75);
             lblEstadiaReserva.Name = "lblEstadiaReserva";
             lblEstadiaReserva.Size = new System.Drawing.Size(45, 13);
             lblEstadiaReserva.TabIndex = 2;
@@ -177,7 +255,7 @@ namespace SistemaDeHotelaria
 
             Label lblReservado = new Label();
             lblReservado.AutoSize = true;
-            lblReservado.Location = new System.Drawing.Point(48, 60);
+            lblReservado.Location = new System.Drawing.Point(48, 45);
             lblReservado.Name = "lblReservado";
             lblReservado.Size = new System.Drawing.Size(86, 13);
             lblReservado.TabIndex = 1;
@@ -192,18 +270,29 @@ namespace SistemaDeHotelaria
             label4.TabIndex = 0;
             label4.Text = st.Quarto.ToString();
 
-            Button button14 = new Button();
-            button14.Location = new System.Drawing.Point(33, 128);
-            button14.Name = "button14";
-            button14.Size = new System.Drawing.Size(105, 23);
-            button14.TabIndex = 5;
-            button14.Text = "Cancelar Reserva";
-            button14.UseVisualStyleBackColor = true;
+            Button btnCancelar = new Button();
+            btnCancelar.Location = new System.Drawing.Point(33, 135);
+            btnCancelar.Name = "btnCancelar" + index;
+            btnCancelar.Size = new System.Drawing.Size(105, 23);
+            btnCancelar.TabIndex = 5;
+            btnCancelar.Text = "Cancelar Reserva";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += new System.EventHandler(this.btnConsumo_Click);
+
+            Button btnCriar = new Button();
+            btnCriar.Location = new System.Drawing.Point(33, 110);
+            btnCriar.Name = "btnCriar" + index;
+            btnCriar.Size = new System.Drawing.Size(105, 23);
+            btnCriar.TabIndex = 5;
+            btnCriar.Text = "Criar Hospedagem";
+            btnCriar.UseVisualStyleBackColor = true;
+            btnCriar.Click += new System.EventHandler(this.btnConsumo_Click);
 
             panelReservado.BackColor = System.Drawing.Color.IndianRed;
             panelReservado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panelReservado.Controls.Add(lblHospedeReserva);
-            panelReservado.Controls.Add(button14);
+            panelReservado.Controls.Add(btnCriar);
+            panelReservado.Controls.Add(btnCancelar);
             panelReservado.Controls.Add(lblPeriodoReserva);
             panelReservado.Controls.Add(lblEstadiaReserva);
             panelReservado.Controls.Add(lblReservado);
@@ -216,23 +305,25 @@ namespace SistemaDeHotelaria
             panels.Add(panelReservado);
         }
 
-        public void criarPanelDisponivel(int larg, int alt, SituacaoQuarto st)
+        public void criarPanelDisponivel(int larg, int alt, SituacaoQuarto st, int index)
         {
             Button btnHospedar = new Button();
             btnHospedar.Location = new System.Drawing.Point(35, 130);
-            btnHospedar.Name = "btnHospedar";
+            btnHospedar.Name = "btnHospedar" + index;
             btnHospedar.Size = new System.Drawing.Size(105, 23);
             btnHospedar.TabIndex = 6;
             btnHospedar.Text = "Hospedar";
             btnHospedar.UseVisualStyleBackColor = true;
+            btnHospedar.Click += new System.EventHandler(this.btnConsumo_Click);
 
             Button btnReservar = new Button();
             btnReservar.Location = new System.Drawing.Point(35, 101);
-            btnReservar.Name = "btnReservar";
+            btnReservar.Name = "btnReservar" + index;
             btnReservar.Size = new System.Drawing.Size(105, 23);
             btnReservar.TabIndex = 5;
             btnReservar.Text = "Reservar";
             btnReservar.UseVisualStyleBackColor = true;
+            btnReservar.Click += new System.EventHandler(this.btnConsumo_Click);
 
             Label lblQuartoDisponivel = new Label();
             lblQuartoDisponivel.AutoSize = true;
@@ -278,15 +369,15 @@ namespace SistemaDeHotelaria
             {
                 if (st.Hospedagem == 0 && st.Reserva == 0)
                 {
-                    criarPanelDisponivel(larg, alt, st);
+                    criarPanelDisponivel(larg, alt, st, i);
                 }
                 else if (st.Hospedagem != 0)
                 {
-                    criarPainelOcupado(larg, alt, st);
+                    criarPainelOcupado(larg, alt, st, i);
                 }
                 else
                 {
-                    criarPanelReservado(larg, alt, st);
+                    criarPanelReservado(larg, alt, st, i);
                 }
                 larg = larg + 182;
                 if (i == 6 || i == 13)
@@ -303,10 +394,10 @@ namespace SistemaDeHotelaria
             {
                 using (Entities ef = new Entities())
                 {
-                    List<quarto> listaQuarto = ef.quartos.ToList();
-                    List<hospedagem> listaHospedagem = ef.hospedagems.ToList();
-                    List<reserva> listaReserva = ef.reservas.ToList();
-                    List<hospede> listaHospede = ef.hospedes.ToList();
+                    listaQuarto = ef.quarto.ToList();
+                    listaHospedagem = ef.hospedagem.ToList();
+                    listaReserva = ef.reserva.ToList();
+                    listaHospede = ef.hospede.ToList();
 
                     foreach (quarto q in listaQuarto)
                     {
@@ -315,7 +406,7 @@ namespace SistemaDeHotelaria
                             SituacaoQuarto sit = new SituacaoQuarto();
                             sit.Quarto = q.quartoCodigo;
 
-                            hospedagem ho = listaHospedagem.Find(h => h.quartoCodigo.Equals(sit.Quarto) && DateTime.Compare(h.hospCheckin, DateTime.Now.Date) == 0);
+                            hospedagem ho = listaHospedagem.Find(h => h.quartoCodigo.Equals(sit.Quarto) && (DateTime.Compare(h.hospCheckin, DateTime.Now.Date) == 0 || DateTime.Compare(h.hospCheckout, DateTime.Now.Date) > 0));
                             if (ho != null)
                             {
                                 sit.Hospedagem = ho.hospedagemCodigo;
@@ -347,6 +438,7 @@ namespace SistemaDeHotelaria
                             MessageBox.Show("Erro: " + ex.Message);
                         }
                     }
+                    
                 }
             }
             catch (Exception e)
@@ -355,6 +447,88 @@ namespace SistemaDeHotelaria
             }
 
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        public void limparPanels()
+        {
+            foreach (Panel p in frmPrincipal.panels)
+            {
+                p.Dispose();
+            }
+        }
+
+        private void quartoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadQuarto frm = new frmCadQuarto(this);
+            frm.ShowDialog();
+        }
+
+        private void hóspedesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmHospedes frm = new frmHospedes();
+            frm.ShowDialog();
+        }
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadReserva frm = new frmCadReserva(this);
+            frm.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadProduto frm = new frmCadProduto();
+            frm.ShowDialog();
+        }
+
+        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadServico frm = new frmCadServico();
+            frm.ShowDialog();
+        }
+
+        private void hospedagensToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadHospedagem frm = new frmCadHospedagem(this);
+            frm.ShowDialog();
+        }
+
+        private void produtosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmCadProduto frm = new frmCadProduto();
+            frm.ShowDialog();
+        }
+
+        private void produtosToolStripMenuItem_Click_2(object sender, EventArgs e)
+        {
+            frmCadProduto frm = new frmCadProduto();
+            frm.ShowDialog();
+        }
+
+        private void hospedagensToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmCadHospedagem frm = new frmCadHospedagem(this);
+            frm.ShowDialog();
         }
     }
 }

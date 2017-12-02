@@ -18,9 +18,6 @@ namespace SistemaDeHotelaria.Controller
         public int Hospedagem { get; set; }
         public int Reserva { get; set; }
         public DateTime CheckIn { get; set; }
-        public DateTime CheckOut { get; set; }
-
-        
-        
+        public DateTime CheckOut { get; set; } 
     }
 }
