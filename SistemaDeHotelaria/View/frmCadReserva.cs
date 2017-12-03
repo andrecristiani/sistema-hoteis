@@ -18,6 +18,7 @@ namespace SistemaDeHotelaria.View
         List<Hospede> listaHospede;
         List<Quarto> listaQuarto;
         List<Funcionario> listaFuncionario;
+        List<Reservas> listaReservas;
         SituacaoQuarto sit;
         int opcao = 0, id = 0;
         Reservas res = new Reservas();
@@ -40,6 +41,7 @@ namespace SistemaDeHotelaria.View
                 cbQuarto.Items.Add(l.Codigo);
             }
             listaFuncionario = Funcionario.carregarListaFuncionarios();
+            listaReservas = Reservas.carregarListaReservas();
             desabilitar();
             txtCodigo.Enabled = false;
             rbTodas.Checked = true;
@@ -65,6 +67,7 @@ namespace SistemaDeHotelaria.View
                 cbQuarto.Items.Add(l.Codigo);
             }
             listaFuncionario = Funcionario.carregarListaFuncionarios();
+            listaReservas = Reservas.carregarListaReservas();
             desabilitar();
             txtCodigo.Enabled = false;
             rbTodas.Checked = true;
@@ -107,7 +110,7 @@ namespace SistemaDeHotelaria.View
             opcao = 2;
             btnNovo.Enabled = false;
             btnExcluir.Enabled = false;
-            id = Convert.ToInt32(dgvReserva.CurrentRow.Cells["Codigo"].Value.ToString());
+            id = Convert.ToInt32(dgvReserva.CurrentRow.Cells["Código"].Value.ToString());
             habilitar();
         }
 
@@ -125,7 +128,7 @@ namespace SistemaDeHotelaria.View
         {
             try
             {
-                id = Convert.ToInt32(dgvReserva.CurrentRow.Cells["Codigo"].Value.ToString());
+                id = Convert.ToInt32(dgvReserva.CurrentRow.Cells["Código"].Value.ToString());
                 if (MessageBox.Show("Tem certeza que deseja excluir este hóspede?", "Confirmação de Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Reservas.excluirReserva(id);
@@ -156,15 +159,16 @@ namespace SistemaDeHotelaria.View
 
         private void dgvReserva_MouseClick(object sender, MouseEventArgs e)
         {
-            id = int.Parse(dgvReserva.CurrentRow.Cells["Codigo"].Value.ToString());
-            int idHospede = int.Parse(dgvReserva.CurrentRow.Cells["codHospede"].Value.ToString());
-            res = Reservas.listaReservas.Find(r => r.Codigo == id);
-            Hospede hosp = listaHospede.Find(h => h.Codigo == idHospede);
-            txtCodigo.Text = id.ToString();
-            cbHospede.SelectedItem = hosp.Nome;
-            cbQuarto.Text = res.CodQuarto.ToString();
-            dtpCheckin.Text = res.Checkin.ToString();
-            dtpCheckout.Text = res.Checkout.ToString();
+            int idReserva = int.Parse(dgvReserva.CurrentRow.Cells["Código"].Value.ToString());
+            string nomeHospede = dgvReserva.CurrentRow.Cells["Hóspede"].Value.ToString();
+            int idQuarto = int.Parse(dgvReserva.CurrentRow.Cells["Quarto"].Value.ToString());
+            string checkin = dgvReserva.CurrentRow.Cells["CheckIn"].Value.ToString();
+            string checkout = dgvReserva.CurrentRow.Cells["CheckOut"].Value.ToString();
+            txtCodigo.Text = idReserva.ToString();
+            cbHospede.Text = nomeHospede.ToString();
+            cbQuarto.Text = idQuarto.ToString();
+            dtpCheckin.Text = checkin.ToString();
+            dtpCheckout.Text = checkout.ToString();
             desabilitar();
         }
 
@@ -275,20 +279,20 @@ namespace SistemaDeHotelaria.View
             DateTime checkout = DateTime.Parse(dtpCheckout.Text);
             if (opcao == 1)
             {
-                if (checkin < DateTime.Now.Date || checkout <= DateTime.Now.Date)
+                if (checkin < DateTime.Now.Date || checkout < DateTime.Now.Date)
                 {
                     MessageBox.Show("A data de Check-in não pode ser anterior a data de hoje!");
                 }
                 else
                 {
                     if (Reservas.listaReservas.Any(res => res.CodQuarto == codQuarto &&
-                    ((res.Checkin <= checkin && res.Checkout >= checkin)|| (res.Checkin <= checkout && res.Checkout >= checkout))))
+                   (res.Checkin <= checkin && res.Checkout >= checkin || res.Checkin <= checkout && res.Checkout >= checkout)))
                     {
                         MessageBox.Show("O quarto está reservado!");
                         limparCampos();
                         desabilitar();
                     }else if (Hospedagens.listaHospedagens.Any(hosp => hosp.CodigoQuarto == codQuarto && 
-                    ((hosp.Checkin <= checkin && hosp.Checkout >= checkin) || (hosp.Checkin <= checkout && hosp.Checkout >= checkout))))
+                    (hosp.Checkin <= checkin && hosp.Checkout >= checkin || hosp.Checkin <= checkout && hosp.Checkout >= checkout)))
                     {
                         MessageBox.Show("O quarto está ocupado durante este período!");
                         limparCampos();
@@ -329,7 +333,7 @@ namespace SistemaDeHotelaria.View
                         desabilitar();
                     }
                     else if (Hospedagens.listaHospedagens.Any(hosp => hosp.CodigoQuarto == codQuarto &&
-                            ((hosp.Checkin <= checkin && hosp.Checkout >= checkin) || (hosp.Checkin <= checkout && hosp.Checkout >= checkout))))
+                            (hosp.Checkin <= checkin && hosp.Checkout >= checkin || hosp.Checkin <= checkout && hosp.Checkout >= checkout)))
                     {
                         MessageBox.Show("O quarto está ocupado durante este período!");
                         limparCampos();

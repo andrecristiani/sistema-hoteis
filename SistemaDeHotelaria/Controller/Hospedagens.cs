@@ -23,6 +23,8 @@ namespace SistemaDeHotelaria.Controller
 
         public static List<Hospedagens> listaHospedagens = new List<Hospedagens>();
 
+        
+
         public static void carregarHospedagens()
         {
             try
@@ -43,7 +45,7 @@ namespace SistemaDeHotelaria.Controller
                     h.CodigoHosp = int.Parse(dtr["hospCodigo"].ToString());
                     h.CodigoQuarto = int.Parse(dtr["quartoCodigo"].ToString());
                     h.CodigoFunc = int.Parse(dtr["funcCodigo"].ToString());
-                    h.CodigoReserva = int.Parse(dtr["reservaCodigo"].ToString());
+                   // h.CodigoReserva = int.Parse(dtr["reservaCodigo"].ToString());
                     h.Checkin = DateTime.Parse(dtr["hospCheckin"].ToString());
                     h.Checkout = DateTime.Parse(dtr["hospCheckout"].ToString());
                     h.Valor = float.Parse(dtr["valorTotal"].ToString());

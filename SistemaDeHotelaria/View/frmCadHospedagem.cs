@@ -39,10 +39,12 @@ namespace SistemaDeHotelaria.View
               cbQuarto.Items.Add(atributo.Codigo);
             }
             listaReservas = Reservas.carregarListaReservas();
+            Hospedagens.carregarHospedagens();
             desabilitar();
             txtCodigo.Enabled = false;
             rbTodas.Checked = true;
             mkDataBusca.Enabled = false;
+
         }
 
         public frmCadHospedagem(frmPrincipal frm, SituacaoQuarto sit)
@@ -63,6 +65,7 @@ namespace SistemaDeHotelaria.View
                 cbQuarto.Items.Add(atributo.Codigo);
             }
             listaReservas = Reservas.carregarListaReservas();
+            Hospedagens.carregarHospedagens();
             desabilitar();
             txtCodigo.Enabled = false;
             rbTodas.Checked = true;
@@ -116,7 +119,7 @@ namespace SistemaDeHotelaria.View
         {
             try
             {
-                id = Convert.ToInt32(dgvHospedagem.CurrentRow.Cells["Codigo"].Value.ToString());
+                id = Convert.ToInt32(dgvHospedagem.CurrentRow.Cells["Código"].Value.ToString());
                 if (MessageBox.Show("Tem certeza que deseja excluir esta hospedagem?", "Confirmação de Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Hospedagens.excluirHospedagem(id);
@@ -135,7 +138,7 @@ namespace SistemaDeHotelaria.View
             opcao = 2;
             btnNovo.Enabled = false;
             btnExcluir.Enabled = false;
-            id = Convert.ToInt32(dgvHospedagem.CurrentRow.Cells["Codigo"].Value.ToString());
+            id = Convert.ToInt32(dgvHospedagem.CurrentRow.Cells["Código"].Value.ToString());
             habilitar();
         }
 
@@ -150,14 +153,18 @@ namespace SistemaDeHotelaria.View
 
         private void dgvHospedagem_MouseClick(object sender, MouseEventArgs e)
         {
-            id = int.Parse(dgvHospedagem.CurrentRow.Cells["Código"].Value.ToString());
-            hos = Hospedagens.listaHospedagens.Find(h => h.Codigo == id);
-            txtCodigo.Text = id.ToString();
-            cbHospede.SelectedIndex = cbHospede.SelectedIndex;
-            cbQuarto.Text = hos.CodigoQuarto.ToString();
-            dtpCheckin.Text = hos.Checkin.ToString();
-            dtpCheckout.Text = hos.Checkout.ToString();
-            txtValor.Text = hos.Valor.ToString();
+            int idHospedagem = int.Parse(dgvHospedagem.CurrentRow.Cells["Código"].Value.ToString());
+            string nomeHospede = dgvHospedagem.CurrentRow.Cells["Hóspede"].Value.ToString();
+            int idQuarto = int.Parse(dgvHospedagem.CurrentRow.Cells["Quarto"].Value.ToString());
+            string checkin = dgvHospedagem.CurrentRow.Cells["CheckIn"].Value.ToString();
+            string checkout = dgvHospedagem.CurrentRow.Cells["checkOut"].Value.ToString();
+            float valor = float.Parse(dgvHospedagem.CurrentRow.Cells["Valor"].Value.ToString());
+            txtCodigo.Text = idHospedagem.ToString();
+            cbHospede.Text = nomeHospede.ToString();
+            cbQuarto.Text = idQuarto.ToString();
+            dtpCheckin.Text = checkin.ToString();
+            dtpCheckout.Text = checkout.ToString();
+            txtValor.Text = valor.ToString("N2");
             desabilitar();
         }
 
@@ -258,6 +265,10 @@ namespace SistemaDeHotelaria.View
             checkin = dtpCheckin.Text;
             checkout = dtpCheckout.Text;
             periodo = (DateTime.Parse(checkout).Subtract(DateTime.Parse(checkin))).Days;
+            if (periodo == 0)
+            {
+                periodo = 1;
+            }
             valorTotal = diaria * periodo;
             txtValor.Text = valorTotal.ToString();
         }
@@ -274,21 +285,21 @@ namespace SistemaDeHotelaria.View
             DateTime checkout = DateTime.Parse(dtpCheckout.Text);
             if (opcao == 1)
             {
-                if (checkin < DateTime.Now.Date || checkout <= DateTime.Now.Date)
+                if (checkin < DateTime.Now.Date || checkout < DateTime.Now.Date)
                 {
                     MessageBox.Show("A data de Check-in não pode ser anterior a data de hoje!");
                 }
                 else
                 {
                     if (Reservas.listaReservas.Any(res => res.CodQuarto == codQuarto &&
-                    ((res.Checkin <= checkin && res.Checkout >= checkin) || (res.Checkin <= checkout && res.Checkout >= checkout)) && !res.Codigo.Equals(sit.Reserva)))
+                    (res.Checkin <= checkin && res.Checkout >= checkin || res.Checkin <= checkout && res.Checkout >= checkout) && !res.Codigo.Equals(sit.Reserva)))
                     {
                         MessageBox.Show("O quarto está reservado!");
                         limparCampos();
                         desabilitar();
                     }
                     else if (Hospedagens.listaHospedagens.Any(hosp => hosp.CodigoQuarto == codQuarto &&
-                   ((hosp.Checkin <= checkin && hosp.Checkout >= checkin) || (hosp.Checkin <= checkout && hosp.Checkout >= checkout))))
+                   (hosp.Checkin <= checkin && hosp.Checkout >= checkin || hosp.Checkin <= checkout && hosp.Checkout >= checkout)))
                     {
                         MessageBox.Show("O quarto está ocupado durante este período!");
                         limparCampos();
@@ -383,12 +394,12 @@ namespace SistemaDeHotelaria.View
 
         public void limparCampos()
         {
-            txtCodigo.Clear();
+            txtCodigo.Text = "";
             cbHospede.Text = "";
             cbQuarto.Text = "";
             dtpCheckin.Text = "";
             dtpCheckout.Text = "";
-            txtValor.Clear();
+            txtValor.Text= "";
         }
 
         private void carregarReserva(int codigo)
@@ -401,8 +412,12 @@ namespace SistemaDeHotelaria.View
             checkin = reserva.Checkin.ToString();
             checkout = reserva.Checkout.ToString();
             periodo = (DateTime.Parse(checkout).Subtract(DateTime.Parse(checkin))).Days;
+            if (periodo == 0)
+            {
+                periodo = 1;
+            }
             valorTotal = diaria * periodo;
-            txtValor.Text = valorTotal.ToString();
+            txtValor.Text = valorTotal.ToString("N2");
         }
     }
 }

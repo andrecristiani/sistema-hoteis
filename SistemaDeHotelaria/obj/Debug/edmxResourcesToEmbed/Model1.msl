@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EntityFrameworkStoreContainer" CdmEntityContainer="Entities">
+  <EntityContainerMapping StorageEntityContainer="bdHotelModelStoreContainer" CdmEntityContainer="Entities">
     <EntitySetMapping Name="cidade">
-      <EntityTypeMapping TypeName="EntityFramework.cidade">
+      <EntityTypeMapping TypeName="bdHotelModel.cidade">
         <MappingFragment StoreEntitySet="cidade">
           <ScalarProperty Name="cidadeCodigo" ColumnName="cidadeCodigo" />
           <ScalarProperty Name="cidadeNome" ColumnName="cidadeNome" />
@@ -11,7 +11,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="consumo">
-      <EntityTypeMapping TypeName="EntityFramework.consumo">
+      <EntityTypeMapping TypeName="bdHotelModel.consumo">
         <MappingFragment StoreEntitySet="consumo">
           <ScalarProperty Name="consumoCodigo" ColumnName="consumoCodigo" />
           <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
@@ -22,7 +22,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="estado">
-      <EntityTypeMapping TypeName="EntityFramework.estado">
+      <EntityTypeMapping TypeName="bdHotelModel.estado">
         <MappingFragment StoreEntitySet="estado">
           <ScalarProperty Name="estadoCodigo" ColumnName="estadoCodigo" />
           <ScalarProperty Name="estadoNome" ColumnName="estadoNome" />
@@ -31,7 +31,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="funcionario">
-      <EntityTypeMapping TypeName="EntityFramework.funcionario">
+      <EntityTypeMapping TypeName="bdHotelModel.funcionario">
         <MappingFragment StoreEntitySet="funcionario">
           <ScalarProperty Name="funcCodigo" ColumnName="funcCodigo" />
           <ScalarProperty Name="funcNome" ColumnName="funcNome" />
@@ -52,7 +52,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="hospedagem">
-      <EntityTypeMapping TypeName="EntityFramework.hospedagem">
+      <EntityTypeMapping TypeName="bdHotelModel.hospedagem">
         <MappingFragment StoreEntitySet="hospedagem">
           <ScalarProperty Name="hospedagemCodigo" ColumnName="hospedagemCodigo" />
           <ScalarProperty Name="hospCheckin" ColumnName="hospCheckin" />
@@ -66,7 +66,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="hospede">
-      <EntityTypeMapping TypeName="EntityFramework.hospede">
+      <EntityTypeMapping TypeName="bdHotelModel.hospede">
         <MappingFragment StoreEntitySet="hospede">
           <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
           <ScalarProperty Name="hospNome" ColumnName="hospNome" />
@@ -83,7 +83,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="pagamento">
-      <EntityTypeMapping TypeName="EntityFramework.pagamento">
+      <EntityTypeMapping TypeName="bdHotelModel.pagamento">
         <MappingFragment StoreEntitySet="pagamento">
           <ScalarProperty Name="pagCodigo" ColumnName="pagCodigo" />
           <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
@@ -92,7 +92,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="produto">
-      <EntityTypeMapping TypeName="EntityFramework.produto">
+      <EntityTypeMapping TypeName="bdHotelModel.produto">
         <MappingFragment StoreEntitySet="produto">
           <ScalarProperty Name="prodCodigo" ColumnName="prodCodigo" />
           <ScalarProperty Name="prodDescricao" ColumnName="prodDescricao" />
@@ -103,7 +103,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="quarto">
-      <EntityTypeMapping TypeName="EntityFramework.quarto">
+      <EntityTypeMapping TypeName="bdHotelModel.quarto">
         <MappingFragment StoreEntitySet="quarto">
           <ScalarProperty Name="quartoCodigo" ColumnName="quartoCodigo" />
           <ScalarProperty Name="quartoDescricao" ColumnName="quartoDescricao" />
@@ -117,7 +117,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="reserva">
-      <EntityTypeMapping TypeName="EntityFramework.reserva">
+      <EntityTypeMapping TypeName="bdHotelModel.reserva">
         <MappingFragment StoreEntitySet="reserva">
           <ScalarProperty Name="reservaCodigo" ColumnName="reservaCodigo" />
           <ScalarProperty Name="reservaCheckin" ColumnName="reservaCheckin" />
@@ -129,7 +129,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="servico">
-      <EntityTypeMapping TypeName="EntityFramework.servico">
+      <EntityTypeMapping TypeName="bdHotelModel.servico">
         <MappingFragment StoreEntitySet="servico">
           <ScalarProperty Name="servCodigo" ColumnName="servCodigo" />
           <ScalarProperty Name="servescricao" ColumnName="servescricao" />
@@ -139,7 +139,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="servicosPrestados">
-      <EntityTypeMapping TypeName="EntityFramework.servicosPrestados">
+      <EntityTypeMapping TypeName="bdHotelModel.servicosPrestados">
         <MappingFragment StoreEntitySet="servicosPrestados">
           <ScalarProperty Name="servPrestadoCodigo" ColumnName="servPrestadoCodigo" />
           <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
@@ -150,7 +150,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tipoPagamento">
-      <EntityTypeMapping TypeName="EntityFramework.tipoPagamento">
+      <EntityTypeMapping TypeName="bdHotelModel.tipoPagamento">
         <MappingFragment StoreEntitySet="tipoPagamento">
           <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
           <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
@@ -158,7 +158,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tipoProduto">
-      <EntityTypeMapping TypeName="EntityFramework.tipoProduto">
+      <EntityTypeMapping TypeName="bdHotelModel.tipoProduto">
         <MappingFragment StoreEntitySet="tipoProduto">
           <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
           <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
@@ -166,7 +166,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tipoServico">
-      <EntityTypeMapping TypeName="EntityFramework.tipoServico">
+      <EntityTypeMapping TypeName="bdHotelModel.tipoServico">
         <MappingFragment StoreEntitySet="tipoServico">
           <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
           <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
@@ -174,7 +174,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="unidadeProduto">
-      <EntityTypeMapping TypeName="EntityFramework.unidadeProduto">
+      <EntityTypeMapping TypeName="bdHotelModel.unidadeProduto">
         <MappingFragment StoreEntitySet="unidadeProduto">
           <ScalarProperty Name="unidadeCodigo" ColumnName="unidadeCodigo" />
           <ScalarProperty Name="unidadeDescricao" ColumnName="unidadeDescricao" />

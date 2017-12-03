@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="EntityFramework" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="bdHotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="cidade">
     <Key>
       <PropertyRef Name="cidadeCodigo" />
     </Key>
-    <Property Name="cidadeCodigo" Type="Int32" Nullable="false" />
+    <Property Name="cidadeCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="cidadeNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="estadoCodigo" Type="Int32" Nullable="false" />
     <NavigationProperty Name="funcionario" Relationship="Self.fk_cidadeCodigo_funcionario" FromRole="cidade" ToRole="funcionario" />
@@ -15,7 +15,7 @@
     <Key>
       <PropertyRef Name="consumoCodigo" />
     </Key>
-    <Property Name="consumoCodigo" Type="Int32" Nullable="false" />
+    <Property Name="consumoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="valorUnitario" Type="Double" Nullable="false" />
     <Property Name="quantidade" Type="Int32" Nullable="false" />
     <Property Name="hospCodigo" Type="Int32" Nullable="false" />
@@ -27,7 +27,7 @@
     <Key>
       <PropertyRef Name="estadoCodigo" />
     </Key>
-    <Property Name="estadoCodigo" Type="Int32" Nullable="false" />
+    <Property Name="estadoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="estadoNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="estadoSigla" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="cidade" Relationship="Self.fk_estadoCodigo" FromRole="estado" ToRole="cidade" />
@@ -36,13 +36,13 @@
     <Key>
       <PropertyRef Name="funcCodigo" />
     </Key>
-    <Property Name="funcCodigo" Type="Int32" Nullable="false" />
+    <Property Name="funcCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="funcNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="funcCpf" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="funcTelefone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="funcCelular" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="funcLogradouro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="funcNumero" Type="Int32" Nullable="false" />
+    <Property Name="funcNumero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="funcBairro" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="funcCep" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
     <Property Name="funcComplemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -98,7 +98,7 @@
     <Key>
       <PropertyRef Name="pagCodigo" />
     </Key>
-    <Property Name="pagCodigo" Type="Int32" Nullable="false" />
+    <Property Name="pagCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
     <Property Name="hospCodigo" Type="Int32" Nullable="false" />
     <NavigationProperty Name="hospedagem" Relationship="Self.fk_hospCodigo_pagamento" FromRole="pagamento" ToRole="hospedagem" />
@@ -107,9 +107,9 @@
     <Key>
       <PropertyRef Name="prodCodigo" />
     </Key>
-    <Property Name="prodCodigo" Type="Int32" Nullable="false" />
+    <Property Name="prodCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="prodDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="prodValor" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="prodValor" Type="Double" />
     <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
     <Property Name="unidadeCodigo" Type="Int32" Nullable="false" />
     <NavigationProperty Name="consumo" Relationship="Self.fk_prodCodigo_consumo" FromRole="produto" ToRole="consumo" />
@@ -120,7 +120,7 @@
     <Key>
       <PropertyRef Name="quartoCodigo" />
     </Key>
-    <Property Name="quartoCodigo" Type="Int32" Nullable="false" />
+    <Property Name="quartoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="quartoDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="quartoNumero" Type="Int32" Nullable="false" />
     <Property Name="quartoAndar" Type="Int32" />
@@ -150,7 +150,7 @@
     <Key>
       <PropertyRef Name="servCodigo" />
     </Key>
-    <Property Name="servCodigo" Type="Int32" Nullable="false" />
+    <Property Name="servCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="servescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="servValor" Type="Double" Nullable="false" />
     <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
@@ -161,7 +161,7 @@
     <Key>
       <PropertyRef Name="servPrestadoCodigo" />
     </Key>
-    <Property Name="servPrestadoCodigo" Type="Int32" Nullable="false" />
+    <Property Name="servPrestadoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="valorUnitario" Type="Double" Nullable="false" />
     <Property Name="quantidade" Type="Int32" Nullable="false" />
     <Property Name="servCodigo" Type="Int32" Nullable="false" />
@@ -173,14 +173,14 @@
     <Key>
       <PropertyRef Name="tipoCodigo" />
     </Key>
-    <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
+    <Property Name="tipoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tipoDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="tipoProduto">
     <Key>
       <PropertyRef Name="tipoCodigo" />
     </Key>
-    <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
+    <Property Name="tipoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tipoDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="produto" Relationship="Self.fk_tipoCodigo" FromRole="tipoProduto" ToRole="produto" />
   </EntityType>
@@ -188,7 +188,7 @@
     <Key>
       <PropertyRef Name="tipoCodigo" />
     </Key>
-    <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
+    <Property Name="tipoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tipoDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="servico" Relationship="Self.fk_tipoCodigo_servico" FromRole="tipoServico" ToRole="servico" />
   </EntityType>
@@ -196,7 +196,7 @@
     <Key>
       <PropertyRef Name="unidadeCodigo" />
     </Key>
-    <Property Name="unidadeCodigo" Type="Int32" Nullable="false" />
+    <Property Name="unidadeCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="unidadeDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="unidadeResumo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="produto" Relationship="Self.fk_unidadeCodigo" FromRole="unidadeProduto" ToRole="produto" />
