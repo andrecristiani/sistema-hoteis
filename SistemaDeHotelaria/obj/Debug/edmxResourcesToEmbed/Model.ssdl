@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cidade">
+    <Key>
+      <PropertyRef Name="cidadeCodigo" />
+    </Key>
+    <Property Name="cidadeCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cidadeNome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="estadoCodigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="consumo">
+    <Key>
+      <PropertyRef Name="consumoCodigo" />
+    </Key>
+    <Property Name="consumoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="valorUnitario" Type="float" Nullable="false" />
+    <Property Name="quantidade" Type="int" Nullable="false" />
+    <Property Name="hospCodigo" Type="int" Nullable="false" />
+    <Property Name="prodCodigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="estado">
+    <Key>
+      <PropertyRef Name="estadoCodigo" />
+    </Key>
+    <Property Name="estadoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="estadoNome" Type="varchar" MaxLength="50" />
+    <Property Name="estadoSigla" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="funcionario">
+    <Key>
+      <PropertyRef Name="funcCodigo" />
+    </Key>
+    <Property Name="funcCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="funcNome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="funcCpf" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="funcTelefone" Type="varchar" MaxLength="15" />
+    <Property Name="funcCelular" Type="varchar" MaxLength="15" />
+    <Property Name="funcLogradouro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="funcNumero" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="funcBairro" Type="varchar" MaxLength="30" />
+    <Property Name="funcCep" Type="varchar" MaxLength="12" />
+    <Property Name="funcComplemento" Type="varchar" MaxLength="50" />
+    <Property Name="cidadeCodigo" Type="int" Nullable="false" />
+    <Property Name="funcSalario" Type="float" />
+    <Property Name="funcLogin" Type="varchar" MaxLength="30" />
+    <Property Name="funcSenha" Type="varchar" MaxLength="30" />
+    <Property Name="funcStatus" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="hospedagem">
+    <Key>
+      <PropertyRef Name="hospedagemCodigo" />
+    </Key>
+    <Property Name="hospedagemCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hospCheckin" Type="datetime" Nullable="false" />
+    <Property Name="hospCheckout" Type="datetime" Nullable="false" />
+    <Property Name="funcCodigo" Type="int" Nullable="false" />
+    <Property Name="reservaCodigo" Type="int" />
+    <Property Name="hospCodigo" Type="int" Nullable="false" />
+    <Property Name="quartoCodigo" Type="int" Nullable="false" />
+    <Property Name="valorTotal" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hospede">
+    <Key>
+      <PropertyRef Name="hospCodigo" />
+    </Key>
+    <Property Name="hospCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hospNome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="hospCpf" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="hospTelefone" Type="varchar" MaxLength="15" />
+    <Property Name="hospCelular" Type="varchar" MaxLength="15" />
+    <Property Name="hospLogradouro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="hospNumero" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="hospBairro" Type="varchar" MaxLength="30" />
+    <Property Name="hospCep" Type="varchar" MaxLength="12" />
+    <Property Name="hospComplemento" Type="varchar" MaxLength="50" />
+    <Property Name="cidadeCodigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pagamento">
+    <Key>
+      <PropertyRef Name="pagCodigo" />
+    </Key>
+    <Property Name="pagCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoCodigo" Type="int" Nullable="false" />
+    <Property Name="hospCodigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="produto">
+    <Key>
+      <PropertyRef Name="prodCodigo" />
+    </Key>
+    <Property Name="prodCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prodDescricao" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prodValor" Type="float" />
+    <Property Name="tipoCodigo" Type="int" Nullable="false" />
+    <Property Name="unidadeCodigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="quarto">
+    <Key>
+      <PropertyRef Name="quartoCodigo" />
+    </Key>
+    <Property Name="quartoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="quartoDescricao" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="quartoNumero" Type="int" Nullable="false" />
+    <Property Name="quartoAndar" Type="int" />
+    <Property Name="quartoQtdPessoas" Type="int" Nullable="false" />
+    <Property Name="quartoRamal" Type="varchar" MaxLength="5" />
+    <Property Name="quartoObservacao" Type="varchar" MaxLength="50" />
+    <Property Name="quartoValor" Type="float" />
+  </EntityType>
+  <EntityType Name="reserva">
+    <Key>
+      <PropertyRef Name="reservaCodigo" />
+    </Key>
+    <Property Name="reservaCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="reservaCheckin" Type="datetime" Nullable="false" />
+    <Property Name="reservaCheckout" Type="datetime" Nullable="false" />
+    <Property Name="quartoCodigo" Type="int" Nullable="false" />
+    <Property Name="hospCodigo" Type="int" Nullable="false" />
+    <Property Name="funcCodigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="servico">
+    <Key>
+      <PropertyRef Name="servCodigo" />
+    </Key>
+    <Property Name="servCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="servescricao" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="servValor" Type="float" Nullable="false" />
+    <Property Name="tipoCodigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="servicosPrestados">
+    <Key>
+      <PropertyRef Name="servPrestadoCodigo" />
+    </Key>
+    <Property Name="servPrestadoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="valorUnitario" Type="float" Nullable="false" />
+    <Property Name="quantidade" Type="int" Nullable="false" />
+    <Property Name="servCodigo" Type="int" Nullable="false" />
+    <Property Name="hospCodigo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipoPagamento">
+    <Key>
+      <PropertyRef Name="tipoCodigo" />
+    </Key>
+    <Property Name="tipoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoDescricao" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipoProduto">
+    <Key>
+      <PropertyRef Name="tipoCodigo" />
+    </Key>
+    <Property Name="tipoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoDescricao" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipoServico">
+    <Key>
+      <PropertyRef Name="tipoCodigo" />
+    </Key>
+    <Property Name="tipoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoDescricao" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="unidadeProduto">
+    <Key>
+      <PropertyRef Name="unidadeCodigo" />
+    </Key>
+    <Property Name="unidadeCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unidadeDescricao" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="unidadeResumo" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <Association Name="fk_cidadeCodigo_funcionario">
+    <End Role="cidade" Type="Self.cidade" Multiplicity="1" />
+    <End Role="funcionario" Type="Self.funcionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cidade">
+        <PropertyRef Name="cidadeCodigo" />
+      </Principal>
+      <Dependent Role="funcionario">
+        <PropertyRef Name="cidadeCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cidadeCodigo_hospede">
+    <End Role="cidade" Type="Self.cidade" Multiplicity="1" />
+    <End Role="hospede" Type="Self.hospede" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cidade">
+        <PropertyRef Name="cidadeCodigo" />
+      </Principal>
+      <Dependent Role="hospede">
+        <PropertyRef Name="cidadeCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_estadoCodigo">
+    <End Role="estado" Type="Self.estado" Multiplicity="1" />
+    <End Role="cidade" Type="Self.cidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estado">
+        <PropertyRef Name="estadoCodigo" />
+      </Principal>
+      <Dependent Role="cidade">
+        <PropertyRef Name="estadoCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_funcCodigo">
+    <End Role="funcionario" Type="Self.funcionario" Multiplicity="1" />
+    <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="funcionario">
+        <PropertyRef Name="funcCodigo" />
+      </Principal>
+      <Dependent Role="reserva">
+        <PropertyRef Name="funcCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_funcCodigo_hospedagem">
+    <End Role="funcionario" Type="Self.funcionario" Multiplicity="1" />
+    <End Role="hospedagem" Type="Self.hospedagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="funcionario">
+        <PropertyRef Name="funcCodigo" />
+      </Principal>
+      <Dependent Role="hospedagem">
+        <PropertyRef Name="funcCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_hospCodigo">
+    <End Role="hospede" Type="Self.hospede" Multiplicity="1" />
+    <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hospede">
+        <PropertyRef Name="hospCodigo" />
+      </Principal>
+      <Dependent Role="reserva">
+        <PropertyRef Name="hospCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_hospCodigo_consumo">
+    <End Role="hospedagem" Type="Self.hospedagem" Multiplicity="1" />
+    <End Role="consumo" Type="Self.consumo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hospedagem">
+        <PropertyRef Name="hospedagemCodigo" />
+      </Principal>
+      <Dependent Role="consumo">
+        <PropertyRef Name="hospCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_hospCodigo_hospedagem">
+    <End Role="hospede" Type="Self.hospede" Multiplicity="1" />
+    <End Role="hospedagem" Type="Self.hospedagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hospede">
+        <PropertyRef Name="hospCodigo" />
+      </Principal>
+      <Dependent Role="hospedagem">
+        <PropertyRef Name="hospCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_hospCodigo_pagamento">
+    <End Role="hospedagem" Type="Self.hospedagem" Multiplicity="1" />
+    <End Role="pagamento" Type="Self.pagamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hospedagem">
+        <PropertyRef Name="hospedagemCodigo" />
+      </Principal>
+      <Dependent Role="pagamento">
+        <PropertyRef Name="hospCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_hospCodigo_svPrestados">
+    <End Role="hospedagem" Type="Self.hospedagem" Multiplicity="1" />
+    <End Role="servicosPrestados" Type="Self.servicosPrestados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hospedagem">
+        <PropertyRef Name="hospedagemCodigo" />
+      </Principal>
+      <Dependent Role="servicosPrestados">
+        <PropertyRef Name="hospCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_prodCodigo_consumo">
+    <End Role="produto" Type="Self.produto" Multiplicity="1" />
+    <End Role="consumo" Type="Self.consumo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="produto">
+        <PropertyRef Name="prodCodigo" />
+      </Principal>
+      <Dependent Role="consumo">
+        <PropertyRef Name="prodCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_quartoCodigo">
+    <End Role="quarto" Type="Self.quarto" Multiplicity="1" />
+    <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="quarto">
+        <PropertyRef Name="quartoCodigo" />
+      </Principal>
+      <Dependent Role="reserva">
+        <PropertyRef Name="quartoCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_quartoCodigo_hospedagem">
+    <End Role="quarto" Type="Self.quarto" Multiplicity="1" />
+    <End Role="hospedagem" Type="Self.hospedagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="quarto">
+        <PropertyRef Name="quartoCodigo" />
+      </Principal>
+      <Dependent Role="hospedagem">
+        <PropertyRef Name="quartoCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_reservaCodigo_hospedagem">
+    <End Role="reserva" Type="Self.reserva" Multiplicity="0..1" />
+    <End Role="hospedagem" Type="Self.hospedagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reserva">
+        <PropertyRef Name="reservaCodigo" />
+      </Principal>
+      <Dependent Role="hospedagem">
+        <PropertyRef Name="reservaCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_servCodigo_servPrest">
+    <End Role="servico" Type="Self.servico" Multiplicity="1" />
+    <End Role="servicosPrestados" Type="Self.servicosPrestados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="servico">
+        <PropertyRef Name="servCodigo" />
+      </Principal>
+      <Dependent Role="servicosPrestados">
+        <PropertyRef Name="servCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipoCodigo">
+    <End Role="tipoProduto" Type="Self.tipoProduto" Multiplicity="1" />
+    <End Role="produto" Type="Self.produto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoProduto">
+        <PropertyRef Name="tipoCodigo" />
+      </Principal>
+      <Dependent Role="produto">
+        <PropertyRef Name="tipoCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipoCodigo_servico">
+    <End Role="tipoServico" Type="Self.tipoServico" Multiplicity="1" />
+    <End Role="servico" Type="Self.servico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoServico">
+        <PropertyRef Name="tipoCodigo" />
+      </Principal>
+      <Dependent Role="servico">
+        <PropertyRef Name="tipoCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_unidadeCodigo">
+    <End Role="unidadeProduto" Type="Self.unidadeProduto" Multiplicity="1" />
+    <End Role="produto" Type="Self.produto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidadeProduto">
+        <PropertyRef Name="unidadeCodigo" />
+      </Principal>
+      <Dependent Role="produto">
+        <PropertyRef Name="unidadeCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bdHotelModelStoreContainer">
+    <EntitySet Name="cidade" EntityType="Self.cidade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="consumo" EntityType="Self.consumo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estado" EntityType="Self.estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="funcionario" EntityType="Self.funcionario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hospedagem" EntityType="Self.hospedagem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hospede" EntityType="Self.hospede" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pagamento" EntityType="Self.pagamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="produto" EntityType="Self.produto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="quarto" EntityType="Self.quarto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reserva" EntityType="Self.reserva" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="servico" EntityType="Self.servico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="servicosPrestados" EntityType="Self.servicosPrestados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipoPagamento" EntityType="Self.tipoPagamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipoProduto" EntityType="Self.tipoProduto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipoServico" EntityType="Self.tipoServico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="unidadeProduto" EntityType="Self.unidadeProduto" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_cidadeCodigo_funcionario" Association="Self.fk_cidadeCodigo_funcionario">
+      <End Role="cidade" EntitySet="cidade" />
+      <End Role="funcionario" EntitySet="funcionario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cidadeCodigo_hospede" Association="Self.fk_cidadeCodigo_hospede">
+      <End Role="cidade" EntitySet="cidade" />
+      <End Role="hospede" EntitySet="hospede" />
+    </AssociationSet>
+    <AssociationSet Name="fk_estadoCodigo" Association="Self.fk_estadoCodigo">
+      <End Role="estado" EntitySet="estado" />
+      <End Role="cidade" EntitySet="cidade" />
+    </AssociationSet>
+    <AssociationSet Name="fk_funcCodigo" Association="Self.fk_funcCodigo">
+      <End Role="funcionario" EntitySet="funcionario" />
+      <End Role="reserva" EntitySet="reserva" />
+    </AssociationSet>
+    <AssociationSet Name="fk_funcCodigo_hospedagem" Association="Self.fk_funcCodigo_hospedagem">
+      <End Role="funcionario" EntitySet="funcionario" />
+      <End Role="hospedagem" EntitySet="hospedagem" />
+    </AssociationSet>
+    <AssociationSet Name="fk_hospCodigo" Association="Self.fk_hospCodigo">
+      <End Role="hospede" EntitySet="hospede" />
+      <End Role="reserva" EntitySet="reserva" />
+    </AssociationSet>
+    <AssociationSet Name="fk_hospCodigo_consumo" Association="Self.fk_hospCodigo_consumo">
+      <End Role="hospedagem" EntitySet="hospedagem" />
+      <End Role="consumo" EntitySet="consumo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_hospCodigo_hospedagem" Association="Self.fk_hospCodigo_hospedagem">
+      <End Role="hospede" EntitySet="hospede" />
+      <End Role="hospedagem" EntitySet="hospedagem" />
+    </AssociationSet>
+    <AssociationSet Name="fk_hospCodigo_pagamento" Association="Self.fk_hospCodigo_pagamento">
+      <End Role="hospedagem" EntitySet="hospedagem" />
+      <End Role="pagamento" EntitySet="pagamento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_hospCodigo_svPrestados" Association="Self.fk_hospCodigo_svPrestados">
+      <End Role="hospedagem" EntitySet="hospedagem" />
+      <End Role="servicosPrestados" EntitySet="servicosPrestados" />
+    </AssociationSet>
+    <AssociationSet Name="fk_prodCodigo_consumo" Association="Self.fk_prodCodigo_consumo">
+      <End Role="produto" EntitySet="produto" />
+      <End Role="consumo" EntitySet="consumo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_quartoCodigo" Association="Self.fk_quartoCodigo">
+      <End Role="quarto" EntitySet="quarto" />
+      <End Role="reserva" EntitySet="reserva" />
+    </AssociationSet>
+    <AssociationSet Name="fk_quartoCodigo_hospedagem" Association="Self.fk_quartoCodigo_hospedagem">
+      <End Role="quarto" EntitySet="quarto" />
+      <End Role="hospedagem" EntitySet="hospedagem" />
+    </AssociationSet>
+    <AssociationSet Name="fk_reservaCodigo_hospedagem" Association="Self.fk_reservaCodigo_hospedagem">
+      <End Role="reserva" EntitySet="reserva" />
+      <End Role="hospedagem" EntitySet="hospedagem" />
+    </AssociationSet>
+    <AssociationSet Name="fk_servCodigo_servPrest" Association="Self.fk_servCodigo_servPrest">
+      <End Role="servico" EntitySet="servico" />
+      <End Role="servicosPrestados" EntitySet="servicosPrestados" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipoCodigo" Association="Self.fk_tipoCodigo">
+      <End Role="tipoProduto" EntitySet="tipoProduto" />
+      <End Role="produto" EntitySet="produto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipoCodigo_servico" Association="Self.fk_tipoCodigo_servico">
+      <End Role="tipoServico" EntitySet="tipoServico" />
+      <End Role="servico" EntitySet="servico" />
+    </AssociationSet>
+    <AssociationSet Name="fk_unidadeCodigo" Association="Self.fk_unidadeCodigo">
+      <End Role="unidadeProduto" EntitySet="unidadeProduto" />
+      <End Role="produto" EntitySet="produto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

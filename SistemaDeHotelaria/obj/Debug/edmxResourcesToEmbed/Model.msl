@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bdHotelModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="cidade">
+      <EntityTypeMapping TypeName="bdHotelModel.cidade">
+        <MappingFragment StoreEntitySet="cidade">
+          <ScalarProperty Name="cidadeCodigo" ColumnName="cidadeCodigo" />
+          <ScalarProperty Name="cidadeNome" ColumnName="cidadeNome" />
+          <ScalarProperty Name="estadoCodigo" ColumnName="estadoCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="consumo">
+      <EntityTypeMapping TypeName="bdHotelModel.consumo">
+        <MappingFragment StoreEntitySet="consumo">
+          <ScalarProperty Name="consumoCodigo" ColumnName="consumoCodigo" />
+          <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
+          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+          <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
+          <ScalarProperty Name="prodCodigo" ColumnName="prodCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estado">
+      <EntityTypeMapping TypeName="bdHotelModel.estado">
+        <MappingFragment StoreEntitySet="estado">
+          <ScalarProperty Name="estadoCodigo" ColumnName="estadoCodigo" />
+          <ScalarProperty Name="estadoNome" ColumnName="estadoNome" />
+          <ScalarProperty Name="estadoSigla" ColumnName="estadoSigla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="funcionario">
+      <EntityTypeMapping TypeName="bdHotelModel.funcionario">
+        <MappingFragment StoreEntitySet="funcionario">
+          <ScalarProperty Name="funcCodigo" ColumnName="funcCodigo" />
+          <ScalarProperty Name="funcNome" ColumnName="funcNome" />
+          <ScalarProperty Name="funcCpf" ColumnName="funcCpf" />
+          <ScalarProperty Name="funcTelefone" ColumnName="funcTelefone" />
+          <ScalarProperty Name="funcCelular" ColumnName="funcCelular" />
+          <ScalarProperty Name="funcLogradouro" ColumnName="funcLogradouro" />
+          <ScalarProperty Name="funcNumero" ColumnName="funcNumero" />
+          <ScalarProperty Name="funcBairro" ColumnName="funcBairro" />
+          <ScalarProperty Name="funcCep" ColumnName="funcCep" />
+          <ScalarProperty Name="funcComplemento" ColumnName="funcComplemento" />
+          <ScalarProperty Name="cidadeCodigo" ColumnName="cidadeCodigo" />
+          <ScalarProperty Name="funcSalario" ColumnName="funcSalario" />
+          <ScalarProperty Name="funcLogin" ColumnName="funcLogin" />
+          <ScalarProperty Name="funcSenha" ColumnName="funcSenha" />
+          <ScalarProperty Name="funcStatus" ColumnName="funcStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hospedagem">
+      <EntityTypeMapping TypeName="bdHotelModel.hospedagem">
+        <MappingFragment StoreEntitySet="hospedagem">
+          <ScalarProperty Name="hospedagemCodigo" ColumnName="hospedagemCodigo" />
+          <ScalarProperty Name="hospCheckin" ColumnName="hospCheckin" />
+          <ScalarProperty Name="hospCheckout" ColumnName="hospCheckout" />
+          <ScalarProperty Name="funcCodigo" ColumnName="funcCodigo" />
+          <ScalarProperty Name="reservaCodigo" ColumnName="reservaCodigo" />
+          <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
+          <ScalarProperty Name="quartoCodigo" ColumnName="quartoCodigo" />
+          <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hospede">
+      <EntityTypeMapping TypeName="bdHotelModel.hospede">
+        <MappingFragment StoreEntitySet="hospede">
+          <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
+          <ScalarProperty Name="hospNome" ColumnName="hospNome" />
+          <ScalarProperty Name="hospCpf" ColumnName="hospCpf" />
+          <ScalarProperty Name="hospTelefone" ColumnName="hospTelefone" />
+          <ScalarProperty Name="hospCelular" ColumnName="hospCelular" />
+          <ScalarProperty Name="hospLogradouro" ColumnName="hospLogradouro" />
+          <ScalarProperty Name="hospNumero" ColumnName="hospNumero" />
+          <ScalarProperty Name="hospBairro" ColumnName="hospBairro" />
+          <ScalarProperty Name="hospCep" ColumnName="hospCep" />
+          <ScalarProperty Name="hospComplemento" ColumnName="hospComplemento" />
+          <ScalarProperty Name="cidadeCodigo" ColumnName="cidadeCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pagamento">
+      <EntityTypeMapping TypeName="bdHotelModel.pagamento">
+        <MappingFragment StoreEntitySet="pagamento">
+          <ScalarProperty Name="pagCodigo" ColumnName="pagCodigo" />
+          <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
+          <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="produto">
+      <EntityTypeMapping TypeName="bdHotelModel.produto">
+        <MappingFragment StoreEntitySet="produto">
+          <ScalarProperty Name="prodCodigo" ColumnName="prodCodigo" />
+          <ScalarProperty Name="prodDescricao" ColumnName="prodDescricao" />
+          <ScalarProperty Name="prodValor" ColumnName="prodValor" />
+          <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
+          <ScalarProperty Name="unidadeCodigo" ColumnName="unidadeCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quarto">
+      <EntityTypeMapping TypeName="bdHotelModel.quarto">
+        <MappingFragment StoreEntitySet="quarto">
+          <ScalarProperty Name="quartoCodigo" ColumnName="quartoCodigo" />
+          <ScalarProperty Name="quartoDescricao" ColumnName="quartoDescricao" />
+          <ScalarProperty Name="quartoNumero" ColumnName="quartoNumero" />
+          <ScalarProperty Name="quartoAndar" ColumnName="quartoAndar" />
+          <ScalarProperty Name="quartoQtdPessoas" ColumnName="quartoQtdPessoas" />
+          <ScalarProperty Name="quartoRamal" ColumnName="quartoRamal" />
+          <ScalarProperty Name="quartoObservacao" ColumnName="quartoObservacao" />
+          <ScalarProperty Name="quartoValor" ColumnName="quartoValor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reserva">
+      <EntityTypeMapping TypeName="bdHotelModel.reserva">
+        <MappingFragment StoreEntitySet="reserva">
+          <ScalarProperty Name="reservaCodigo" ColumnName="reservaCodigo" />
+          <ScalarProperty Name="reservaCheckin" ColumnName="reservaCheckin" />
+          <ScalarProperty Name="reservaCheckout" ColumnName="reservaCheckout" />
+          <ScalarProperty Name="quartoCodigo" ColumnName="quartoCodigo" />
+          <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
+          <ScalarProperty Name="funcCodigo" ColumnName="funcCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="servico">
+      <EntityTypeMapping TypeName="bdHotelModel.servico">
+        <MappingFragment StoreEntitySet="servico">
+          <ScalarProperty Name="servCodigo" ColumnName="servCodigo" />
+          <ScalarProperty Name="servescricao" ColumnName="servescricao" />
+          <ScalarProperty Name="servValor" ColumnName="servValor" />
+          <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="servicosPrestados">
+      <EntityTypeMapping TypeName="bdHotelModel.servicosPrestados">
+        <MappingFragment StoreEntitySet="servicosPrestados">
+          <ScalarProperty Name="servPrestadoCodigo" ColumnName="servPrestadoCodigo" />
+          <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
+          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+          <ScalarProperty Name="servCodigo" ColumnName="servCodigo" />
+          <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoPagamento">
+      <EntityTypeMapping TypeName="bdHotelModel.tipoPagamento">
+        <MappingFragment StoreEntitySet="tipoPagamento">
+          <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
+          <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoProduto">
+      <EntityTypeMapping TypeName="bdHotelModel.tipoProduto">
+        <MappingFragment StoreEntitySet="tipoProduto">
+          <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
+          <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoServico">
+      <EntityTypeMapping TypeName="bdHotelModel.tipoServico">
+        <MappingFragment StoreEntitySet="tipoServico">
+          <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
+          <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="unidadeProduto">
+      <EntityTypeMapping TypeName="bdHotelModel.unidadeProduto">
+        <MappingFragment StoreEntitySet="unidadeProduto">
+          <ScalarProperty Name="unidadeCodigo" ColumnName="unidadeCodigo" />
+          <ScalarProperty Name="unidadeDescricao" ColumnName="unidadeDescricao" />
+          <ScalarProperty Name="unidadeResumo" ColumnName="unidadeResumo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -90,11 +90,13 @@
             // 
             // cbHospede
             // 
+            this.cbHospede.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbHospede.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbHospede.FormattingEnabled = true;
             this.cbHospede.Location = new System.Drawing.Point(64, 25);
             this.cbHospede.Name = "cbHospede";
             this.cbHospede.Size = new System.Drawing.Size(362, 21);
-            this.cbHospede.TabIndex = 154;
+            this.cbHospede.TabIndex = 2;
             // 
             // label5
             // 
@@ -110,7 +112,7 @@
             this.txtValor.Location = new System.Drawing.Point(342, 68);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(64, 20);
-            this.txtValor.TabIndex = 152;
+            this.txtValor.TabIndex = 6;
             // 
             // label8
             // 
@@ -143,7 +145,7 @@
             this.rbTodas.Location = new System.Drawing.Point(9, 106);
             this.rbTodas.Name = "rbTodas";
             this.rbTodas.Size = new System.Drawing.Size(55, 17);
-            this.rbTodas.TabIndex = 23;
+            this.rbTodas.TabIndex = 15;
             this.rbTodas.TabStop = true;
             this.rbTodas.Text = "Todas";
             this.rbTodas.UseVisualStyleBackColor = true;
@@ -156,7 +158,7 @@
             this.btnFiltrar.Location = new System.Drawing.Point(145, 93);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(78, 32);
-            this.btnFiltrar.TabIndex = 18;
+            this.btnFiltrar.TabIndex = 17;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
@@ -167,7 +169,7 @@
             this.rbPosterior.Location = new System.Drawing.Point(64, 106);
             this.rbPosterior.Name = "rbPosterior";
             this.rbPosterior.Size = new System.Drawing.Size(66, 17);
-            this.rbPosterior.TabIndex = 22;
+            this.rbPosterior.TabIndex = 16;
             this.rbPosterior.TabStop = true;
             this.rbPosterior.Text = "Posterior";
             this.rbPosterior.UseVisualStyleBackColor = true;
@@ -179,7 +181,7 @@
             this.rbAnterior.Location = new System.Drawing.Point(64, 71);
             this.rbAnterior.Name = "rbAnterior";
             this.rbAnterior.Size = new System.Drawing.Size(61, 17);
-            this.rbAnterior.TabIndex = 21;
+            this.rbAnterior.TabIndex = 14;
             this.rbAnterior.TabStop = true;
             this.rbAnterior.Text = "Anterior";
             this.rbAnterior.UseVisualStyleBackColor = true;
@@ -191,7 +193,7 @@
             this.RbAtual.Location = new System.Drawing.Point(9, 69);
             this.RbAtual.Name = "RbAtual";
             this.RbAtual.Size = new System.Drawing.Size(49, 17);
-            this.RbAtual.TabIndex = 20;
+            this.RbAtual.TabIndex = 13;
             this.RbAtual.TabStop = true;
             this.RbAtual.Text = "Atual";
             this.RbAtual.UseVisualStyleBackColor = true;
@@ -203,7 +205,7 @@
             this.mkDataBusca.Mask = "00/00/0000";
             this.mkDataBusca.Name = "mkDataBusca";
             this.mkDataBusca.Size = new System.Drawing.Size(100, 20);
-            this.mkDataBusca.TabIndex = 18;
+            this.mkDataBusca.TabIndex = 12;
             this.mkDataBusca.ValidatingType = typeof(System.DateTime);
             // 
             // label7
@@ -222,7 +224,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(264, 110);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(78, 32);
-            this.btnCancelar.TabIndex = 147;
+            this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -234,7 +236,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(180, 110);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(78, 32);
-            this.btnSalvar.TabIndex = 146;
+            this.btnSalvar.TabIndex = 9;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -246,7 +248,7 @@
             this.btnNovo.Location = new System.Drawing.Point(12, 110);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(78, 32);
-            this.btnNovo.TabIndex = 145;
+            this.btnNovo.TabIndex = 7;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
@@ -258,7 +260,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(348, 110);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(78, 32);
-            this.btnExcluir.TabIndex = 144;
+            this.btnExcluir.TabIndex = 11;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -270,18 +272,20 @@
             this.btn_alterar.Location = new System.Drawing.Point(96, 110);
             this.btn_alterar.Name = "btn_alterar";
             this.btn_alterar.Size = new System.Drawing.Size(78, 32);
-            this.btn_alterar.TabIndex = 143;
+            this.btn_alterar.TabIndex = 8;
             this.btn_alterar.Text = "Alterar";
             this.btn_alterar.UseVisualStyleBackColor = false;
             this.btn_alterar.Click += new System.EventHandler(this.btn_alterar_Click);
             // 
             // cbQuarto
             // 
+            this.cbQuarto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbQuarto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbQuarto.FormattingEnabled = true;
             this.cbQuarto.Location = new System.Drawing.Point(12, 67);
             this.cbQuarto.Name = "cbQuarto";
             this.cbQuarto.Size = new System.Drawing.Size(64, 21);
-            this.cbQuarto.TabIndex = 138;
+            this.cbQuarto.TabIndex = 3;
             this.cbQuarto.SelectedIndexChanged += new System.EventHandler(this.cbQuarto_SelectedIndexChanged);
             // 
             // label4
@@ -299,7 +303,7 @@
             this.dtpCheckout.Location = new System.Drawing.Point(217, 68);
             this.dtpCheckout.Name = "dtpCheckout";
             this.dtpCheckout.Size = new System.Drawing.Size(97, 20);
-            this.dtpCheckout.TabIndex = 136;
+            this.dtpCheckout.TabIndex = 5;
             this.dtpCheckout.CloseUp += new System.EventHandler(this.dtpCheckout_CloseUp);
             // 
             // dtpCheckin
@@ -308,14 +312,14 @@
             this.dtpCheckin.Location = new System.Drawing.Point(98, 68);
             this.dtpCheckin.Name = "dtpCheckin";
             this.dtpCheckin.Size = new System.Drawing.Size(96, 20);
-            this.dtpCheckin.TabIndex = 135;
+            this.dtpCheckin.TabIndex = 4;
             // 
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(12, 25);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(43, 20);
-            this.txtCodigo.TabIndex = 134;
+            this.txtCodigo.TabIndex = 1;
             // 
             // label3
             // 

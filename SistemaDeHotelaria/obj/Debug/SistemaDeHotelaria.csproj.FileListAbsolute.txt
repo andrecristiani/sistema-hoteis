@@ -170,3 +170,4 @@ C:\Users\Anderson\Git\Atualizado\SistemaDeHotelaria\obj\Debug\SistemaDeHotelaria
 C:\Users\Anderson\Git\Atualizado\SistemaDeHotelaria\obj\Debug\SistemaDeHotelaria.csproj.CoreCompileInputs.cache
 C:\Users\Anderson\Git\Atualizado\SistemaDeHotelaria\obj\Debug\SistemaDeHotelaria.exe
 C:\Users\Anderson\Git\Atualizado\SistemaDeHotelaria\obj\Debug\SistemaDeHotelaria.pdb
+C:\Users\Anderson\Git\Atualizado\SistemaDeHotelaria\obj\Debug\SistemaDeHotelaria.frmFuncionario.resources

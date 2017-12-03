@@ -26,7 +26,7 @@ namespace SistemaDeHotelaria.View
         }
         int opcao = 0, cod = 0, id = 0;
         //String strConexao = "Data Source=DESKTOP-K0O0JOH;Initial Catalog=bdHotel;Integrated Security=True";
-        String strConexao = @"Data Source=DESKTOP-9GUVKU6\SQLEXPRESS;Initial Catalog=bdHotel;Integrated Security=True";
+        // String strConexao = @"Data Source=DESKTOP-9GUVKU6\SQLEXPRESS;Initial Catalog=bdHotel;Integrated Security=True";
         
 
         public void chamarGradeView(){
@@ -247,24 +247,51 @@ namespace SistemaDeHotelaria.View
             }
             else if (rbCodigo.Checked)
             {
-                Conexao con = new Conexao(StringBD.stringConexao);
-                DALhospedes dal = new DALhospedes(con);
-                dgvHospede.DataSource = dal.BuscaCodigo(txtBuscaCodigo.Text);
+                try
+                {
+                    Conexao con = new Conexao(StringBD.stringConexao);
+                    DALhospedes dal = new DALhospedes(con);
+                    dgvHospede.DataSource = dal.BuscaCodigo(txtBuscaCodigo.Text);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+              
 
             }
 
             else if (rbNome.Checked)
             {
-                Conexao con = new Conexao(StringBD.stringConexao);
-                DALhospedes dal = new DALhospedes(con);
-                dgvHospede.DataSource = dal.BuscaNome(txtBuscaNome.Text);
+                try
+                {
+                    Conexao con = new Conexao(StringBD.stringConexao);
+                    DALhospedes dal = new DALhospedes(con);
+                    dgvHospede.DataSource = dal.BuscaNome(txtBuscaNome.Text);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            
             }
             else if (rbCPF.Checked)
             {
-                Conexao con = new Conexao(StringBD.stringConexao);
-                DALhospedes dal = new DALhospedes(con);
-                dgvHospede.DataSource = dal.BuscaCpf(maskBuscaCpf.Text);
-              
+                try
+                {
+                    Conexao con = new Conexao(StringBD.stringConexao);
+                    DALhospedes dal = new DALhospedes(con);
+                    dgvHospede.DataSource = dal.BuscaCpf(maskBuscaCpf.Text);
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            
             }
         }
 

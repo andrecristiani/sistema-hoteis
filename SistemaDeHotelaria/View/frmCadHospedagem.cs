@@ -104,6 +104,7 @@ namespace SistemaDeHotelaria.View
             habilitar();
             btn_alterar.Enabled = false;
             btnExcluir.Enabled = false;
+            dtpCheckin.Enabled = false;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -114,6 +115,7 @@ namespace SistemaDeHotelaria.View
             btn_alterar.Enabled = true;
             btnExcluir.Enabled = true;
             btnNovo.Enabled = true;
+            dtpCheckin.Enabled = true;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -324,6 +326,7 @@ namespace SistemaDeHotelaria.View
                         desabilitar();
                         btn_alterar.Enabled = true;
                         btnExcluir.Enabled = true;
+                        dtpCheckin.Enabled = true;
                     }
                 }
             }
@@ -358,6 +361,7 @@ namespace SistemaDeHotelaria.View
                         desabilitar();
                         btnNovo.Enabled = true;
                         btnExcluir.Enabled = true;
+                        dtpCheckin.Enabled = true;
                     }
                 }
             }

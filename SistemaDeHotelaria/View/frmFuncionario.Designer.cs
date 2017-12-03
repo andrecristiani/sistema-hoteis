@@ -139,11 +139,13 @@
             // 
             // cbEstadoFunc
             // 
+            this.cbEstadoFunc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbEstadoFunc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbEstadoFunc.FormattingEnabled = true;
             this.cbEstadoFunc.Location = new System.Drawing.Point(262, 130);
             this.cbEstadoFunc.Name = "cbEstadoFunc";
             this.cbEstadoFunc.Size = new System.Drawing.Size(43, 21);
-            this.cbEstadoFunc.TabIndex = 178;
+            this.cbEstadoFunc.TabIndex = 9;
             // 
             // groupBox2
             // 
@@ -172,7 +174,7 @@
             this.txtSalarioFunc.Location = new System.Drawing.Point(150, 37);
             this.txtSalarioFunc.Name = "txtSalarioFunc";
             this.txtSalarioFunc.Size = new System.Drawing.Size(100, 20);
-            this.txtSalarioFunc.TabIndex = 174;
+            this.txtSalarioFunc.TabIndex = 14;
             // 
             // cbStatusFunc
             // 
@@ -184,7 +186,7 @@
             this.cbStatusFunc.Location = new System.Drawing.Point(9, 37);
             this.cbStatusFunc.Name = "cbStatusFunc";
             this.cbStatusFunc.Size = new System.Drawing.Size(121, 21);
-            this.cbStatusFunc.TabIndex = 171;
+            this.cbStatusFunc.TabIndex = 13;
             // 
             // label1
             // 
@@ -223,7 +225,7 @@
             this.txtSenhaFunc.Name = "txtSenhaFunc";
             this.txtSenhaFunc.PasswordChar = '*';
             this.txtSenhaFunc.Size = new System.Drawing.Size(131, 20);
-            this.txtSenhaFunc.TabIndex = 176;
+            this.txtSenhaFunc.TabIndex = 16;
             // 
             // lblLogin
             // 
@@ -239,14 +241,14 @@
             this.txtLoginFunc.Location = new System.Drawing.Point(15, 39);
             this.txtLoginFunc.Name = "txtLoginFunc";
             this.txtLoginFunc.Size = new System.Drawing.Size(133, 20);
-            this.txtLoginFunc.TabIndex = 169;
+            this.txtLoginFunc.TabIndex = 15;
             // 
             // txtCodigoFunc
             // 
             this.txtCodigoFunc.Location = new System.Drawing.Point(16, 35);
             this.txtCodigoFunc.Name = "txtCodigoFunc";
             this.txtCodigoFunc.Size = new System.Drawing.Size(43, 20);
-            this.txtCodigoFunc.TabIndex = 167;
+            this.txtCodigoFunc.TabIndex = 1;
             // 
             // maskCPFFunc
             // 
@@ -254,7 +256,7 @@
             this.maskCPFFunc.Mask = "000,000,000-00";
             this.maskCPFFunc.Name = "maskCPFFunc";
             this.maskCPFFunc.Size = new System.Drawing.Size(95, 20);
-            this.maskCPFFunc.TabIndex = 141;
+            this.maskCPFFunc.TabIndex = 3;
             // 
             // lblIDFunc
             // 
@@ -276,11 +278,13 @@
             // 
             // cbCidadeFunc
             // 
+            this.cbCidadeFunc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbCidadeFunc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCidadeFunc.FormattingEnabled = true;
             this.cbCidadeFunc.Location = new System.Drawing.Point(127, 130);
             this.cbCidadeFunc.Name = "cbCidadeFunc";
             this.cbCidadeFunc.Size = new System.Drawing.Size(121, 21);
-            this.cbCidadeFunc.TabIndex = 146;
+            this.cbCidadeFunc.TabIndex = 8;
             // 
             // btnCancelarFunc
             // 
@@ -289,7 +293,7 @@
             this.btnCancelarFunc.Location = new System.Drawing.Point(268, 255);
             this.btnCancelarFunc.Name = "btnCancelarFunc";
             this.btnCancelarFunc.Size = new System.Drawing.Size(78, 32);
-            this.btnCancelarFunc.TabIndex = 164;
+            this.btnCancelarFunc.TabIndex = 20;
             this.btnCancelarFunc.Text = "Cancelar";
             this.btnCancelarFunc.UseVisualStyleBackColor = false;
             this.btnCancelarFunc.Click += new System.EventHandler(this.btnCancelarFunc_Click);
@@ -301,7 +305,7 @@
             this.btnSalvarFunc.Location = new System.Drawing.Point(184, 255);
             this.btnSalvarFunc.Name = "btnSalvarFunc";
             this.btnSalvarFunc.Size = new System.Drawing.Size(78, 32);
-            this.btnSalvarFunc.TabIndex = 163;
+            this.btnSalvarFunc.TabIndex = 19;
             this.btnSalvarFunc.Text = "Salvar";
             this.btnSalvarFunc.UseVisualStyleBackColor = false;
             this.btnSalvarFunc.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -313,7 +317,7 @@
             this.btnNovoFunc.Location = new System.Drawing.Point(16, 255);
             this.btnNovoFunc.Name = "btnNovoFunc";
             this.btnNovoFunc.Size = new System.Drawing.Size(78, 32);
-            this.btnNovoFunc.TabIndex = 162;
+            this.btnNovoFunc.TabIndex = 17;
             this.btnNovoFunc.Text = "Novo";
             this.btnNovoFunc.UseVisualStyleBackColor = false;
             this.btnNovoFunc.Click += new System.EventHandler(this.btnNovo_Click);
@@ -325,7 +329,7 @@
             this.btnExcluirFunc.Location = new System.Drawing.Point(352, 255);
             this.btnExcluirFunc.Name = "btnExcluirFunc";
             this.btnExcluirFunc.Size = new System.Drawing.Size(78, 32);
-            this.btnExcluirFunc.TabIndex = 161;
+            this.btnExcluirFunc.TabIndex = 21;
             this.btnExcluirFunc.Text = "Excluir";
             this.btnExcluirFunc.UseVisualStyleBackColor = false;
             this.btnExcluirFunc.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -337,7 +341,7 @@
             this.btnAlterarFunc.Location = new System.Drawing.Point(100, 255);
             this.btnAlterarFunc.Name = "btnAlterarFunc";
             this.btnAlterarFunc.Size = new System.Drawing.Size(78, 32);
-            this.btnAlterarFunc.TabIndex = 160;
+            this.btnAlterarFunc.TabIndex = 18;
             this.btnAlterarFunc.Text = "Alterar";
             this.btnAlterarFunc.UseVisualStyleBackColor = false;
             this.btnAlterarFunc.Click += new System.EventHandler(this.btnAlterarFunc_Click);
@@ -380,7 +384,7 @@
             this.btnBuscarFunc.Location = new System.Drawing.Point(131, 161);
             this.btnBuscarFunc.Name = "btnBuscarFunc";
             this.btnBuscarFunc.Size = new System.Drawing.Size(78, 32);
-            this.btnBuscarFunc.TabIndex = 26;
+            this.btnBuscarFunc.TabIndex = 29;
             this.btnBuscarFunc.Text = "Buscar";
             this.btnBuscarFunc.UseVisualStyleBackColor = false;
             // 
@@ -390,7 +394,7 @@
             this.rbCodigoBuscaFunc.Location = new System.Drawing.Point(9, 150);
             this.rbCodigoBuscaFunc.Name = "rbCodigoBuscaFunc";
             this.rbCodigoBuscaFunc.Size = new System.Drawing.Size(58, 17);
-            this.rbCodigoBuscaFunc.TabIndex = 21;
+            this.rbCodigoBuscaFunc.TabIndex = 25;
             this.rbCodigoBuscaFunc.TabStop = true;
             this.rbCodigoBuscaFunc.Text = "Código";
             this.rbCodigoBuscaFunc.UseVisualStyleBackColor = true;
@@ -401,7 +405,7 @@
             this.rbCPFBuscaFunc.Location = new System.Drawing.Point(71, 185);
             this.rbCPFBuscaFunc.Name = "rbCPFBuscaFunc";
             this.rbCPFBuscaFunc.Size = new System.Drawing.Size(45, 17);
-            this.rbCPFBuscaFunc.TabIndex = 23;
+            this.rbCPFBuscaFunc.TabIndex = 28;
             this.rbCPFBuscaFunc.TabStop = true;
             this.rbCPFBuscaFunc.Text = "CPF";
             this.rbCPFBuscaFunc.UseVisualStyleBackColor = true;
@@ -412,7 +416,7 @@
             this.maskBuscaCpf.Mask = "000.000.000-00";
             this.maskBuscaCpf.Name = "maskBuscaCpf";
             this.maskBuscaCpf.Size = new System.Drawing.Size(129, 20);
-            this.maskBuscaCpf.TabIndex = 21;
+            this.maskBuscaCpf.TabIndex = 24;
             // 
             // rbNomeBuscaFunc
             // 
@@ -420,7 +424,7 @@
             this.rbNomeBuscaFunc.Location = new System.Drawing.Point(71, 150);
             this.rbNomeBuscaFunc.Name = "rbNomeBuscaFunc";
             this.rbNomeBuscaFunc.Size = new System.Drawing.Size(53, 17);
-            this.rbNomeBuscaFunc.TabIndex = 22;
+            this.rbNomeBuscaFunc.TabIndex = 26;
             this.rbNomeBuscaFunc.TabStop = true;
             this.rbNomeBuscaFunc.Text = "Nome";
             this.rbNomeBuscaFunc.UseVisualStyleBackColor = true;
@@ -439,7 +443,7 @@
             this.txtBuscaCodigo.Location = new System.Drawing.Point(9, 35);
             this.txtBuscaCodigo.Name = "txtBuscaCodigo";
             this.txtBuscaCodigo.Size = new System.Drawing.Size(48, 20);
-            this.txtBuscaCodigo.TabIndex = 21;
+            this.txtBuscaCodigo.TabIndex = 22;
             // 
             // lblCodigoBuscaFunc
             // 
@@ -455,7 +459,7 @@
             this.txtBuscaNome.Location = new System.Drawing.Point(9, 75);
             this.txtBuscaNome.Name = "txtBuscaNome";
             this.txtBuscaNome.Size = new System.Drawing.Size(173, 20);
-            this.txtBuscaNome.TabIndex = 21;
+            this.txtBuscaNome.TabIndex = 23;
             // 
             // lblNomeBuscaFunc
             // 
@@ -472,7 +476,7 @@
             this.maskCelularFunc.Mask = "(00) 0000-0000";
             this.maskCelularFunc.Name = "maskCelularFunc";
             this.maskCelularFunc.Size = new System.Drawing.Size(95, 20);
-            this.maskCelularFunc.TabIndex = 149;
+            this.maskCelularFunc.TabIndex = 12;
             // 
             // maskTelefoneFunc
             // 
@@ -480,42 +484,42 @@
             this.maskTelefoneFunc.Mask = "(00) 0000-0000";
             this.maskTelefoneFunc.Name = "maskTelefoneFunc";
             this.maskTelefoneFunc.Size = new System.Drawing.Size(95, 20);
-            this.maskTelefoneFunc.TabIndex = 148;
+            this.maskTelefoneFunc.TabIndex = 11;
             // 
             // txtComplementoFunc
             // 
             this.txtComplementoFunc.Location = new System.Drawing.Point(16, 131);
             this.txtComplementoFunc.Name = "txtComplementoFunc";
             this.txtComplementoFunc.Size = new System.Drawing.Size(99, 20);
-            this.txtComplementoFunc.TabIndex = 145;
+            this.txtComplementoFunc.TabIndex = 7;
             // 
             // txtBairroFunc
             // 
             this.txtBairroFunc.Location = new System.Drawing.Point(485, 84);
             this.txtBairroFunc.Name = "txtBairroFunc";
             this.txtBairroFunc.Size = new System.Drawing.Size(128, 20);
-            this.txtBairroFunc.TabIndex = 144;
+            this.txtBairroFunc.TabIndex = 6;
             // 
             // txtNumeroFunc
             // 
             this.txtNumeroFunc.Location = new System.Drawing.Point(421, 84);
             this.txtNumeroFunc.Name = "txtNumeroFunc";
             this.txtNumeroFunc.Size = new System.Drawing.Size(43, 20);
-            this.txtNumeroFunc.TabIndex = 143;
+            this.txtNumeroFunc.TabIndex = 5;
             // 
             // txtLogradouroFunc
             // 
             this.txtLogradouroFunc.Location = new System.Drawing.Point(16, 84);
             this.txtLogradouroFunc.Name = "txtLogradouroFunc";
             this.txtLogradouroFunc.Size = new System.Drawing.Size(384, 20);
-            this.txtLogradouroFunc.TabIndex = 142;
+            this.txtLogradouroFunc.TabIndex = 4;
             // 
             // txtNomeFunc
             // 
             this.txtNomeFunc.Location = new System.Drawing.Point(74, 35);
             this.txtNomeFunc.Name = "txtNomeFunc";
             this.txtNomeFunc.Size = new System.Drawing.Size(418, 20);
-            this.txtNomeFunc.TabIndex = 140;
+            this.txtNomeFunc.TabIndex = 2;
             // 
             // maskCEPFunc
             // 
@@ -523,7 +527,7 @@
             this.maskCEPFunc.Mask = "00000-9999";
             this.maskCEPFunc.Name = "maskCEPFunc";
             this.maskCEPFunc.Size = new System.Drawing.Size(77, 20);
-            this.maskCEPFunc.TabIndex = 147;
+            this.maskCEPFunc.TabIndex = 10;
             // 
             // label10
             // 

@@ -73,10 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cidade.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="consumo.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Controller\Cidade.cs" />
     <Compile Include="Controller\Consumo.cs" />
@@ -93,63 +93,63 @@
     <Compile Include="Controller\TipoProduto.cs" />
     <Compile Include="Controller\TipoServico.cs" />
     <Compile Include="Controller\UnidadeProduto.cs" />
-    <Compile Include="efModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>efModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="efModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>efModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="efModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>efModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="estado.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="funcionario.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="hospedagem.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="hospede.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="pagamento.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="produto.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="quarto.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="reserva.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="servico.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="servicosPrestados.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tipoPagamento.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tipoProduto.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tipoServico.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="unidadeProduto.cs">
-      <DependentUpon>efModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Utilitarios\Conexao.cs" />
     <Compile Include="Utilitarios\CpfCnpjUtils.cs" />
@@ -270,6 +270,9 @@
     <EmbeddedResource Include="View\frmCadUnidadeProduto.resx">
       <DependentUpon>frmCadUnidadeProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\frmFuncionario.resx">
+      <DependentUpon>frmFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\frmHospedes.resx">
       <DependentUpon>frmHospedes.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,12 +301,12 @@
     <EmbeddedResource Include="View\frmVinServico.resx">
       <DependentUpon>frmVinServico.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="efModel.edmx">
+    <EntityDeploy Include="Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>efModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="efModel.edmx.diagram">
-      <DependentUpon>efModel.edmx</DependentUpon>
+    <None Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -343,15 +346,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="efModel.Context.tt">
+    <Content Include="Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>efModel.edmx</DependentUpon>
-      <LastGenOutput>efModel.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="efModel.tt">
+    <Content Include="Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>efModel.edmx</DependentUpon>
-      <LastGenOutput>efModel.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,7 +22,7 @@ namespace SistemaDeHotelaria
     
         public int prodCodigo { get; set; }
         public string prodDescricao { get; set; }
-        public Nullable<decimal> prodValor { get; set; }
+        public Nullable<double> prodValor { get; set; }
         public int tipoCodigo { get; set; }
         public int unidadeCodigo { get; set; }
     
