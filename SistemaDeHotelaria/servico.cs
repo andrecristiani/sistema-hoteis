@@ -22,7 +22,7 @@ namespace SistemaDeHotelaria
     
         public int servCodigo { get; set; }
         public string servescricao { get; set; }
-        public double servValor { get; set; }
+        public Nullable<decimal> servValor { get; set; }
         public int tipoCodigo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

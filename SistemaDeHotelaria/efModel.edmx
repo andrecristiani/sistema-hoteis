@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bdHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EntityFramework.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cidade">
           <Key>
             <PropertyRef Name="cidadeCodigo" />
           </Key>
-          <Property Name="cidadeCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cidadeCodigo" Type="int" Nullable="false" />
           <Property Name="cidadeNome" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="estadoCodigo" Type="int" Nullable="false" />
         </EntityType>
@@ -17,7 +17,7 @@
           <Key>
             <PropertyRef Name="consumoCodigo" />
           </Key>
-          <Property Name="consumoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="consumoCodigo" Type="int" Nullable="false" />
           <Property Name="valorUnitario" Type="float" Nullable="false" />
           <Property Name="quantidade" Type="int" Nullable="false" />
           <Property Name="hospCodigo" Type="int" Nullable="false" />
@@ -27,7 +27,7 @@
           <Key>
             <PropertyRef Name="estadoCodigo" />
           </Key>
-          <Property Name="estadoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estadoCodigo" Type="int" Nullable="false" />
           <Property Name="estadoNome" Type="varchar" MaxLength="50" />
           <Property Name="estadoSigla" Type="varchar" MaxLength="2" />
         </EntityType>
@@ -35,13 +35,13 @@
           <Key>
             <PropertyRef Name="funcCodigo" />
           </Key>
-          <Property Name="funcCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="funcCodigo" Type="int" Nullable="false" />
           <Property Name="funcNome" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="funcCpf" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="funcTelefone" Type="varchar" MaxLength="15" />
           <Property Name="funcCelular" Type="varchar" MaxLength="15" />
           <Property Name="funcLogradouro" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="funcNumero" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="funcNumero" Type="int" Nullable="false" />
           <Property Name="funcBairro" Type="varchar" MaxLength="30" />
           <Property Name="funcCep" Type="varchar" MaxLength="12" />
           <Property Name="funcComplemento" Type="varchar" MaxLength="50" />
@@ -86,15 +86,19 @@
           </Key>
           <Property Name="pagCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tipoCodigo" Type="int" Nullable="false" />
+          <Property Name="parcelas" Type="int" Nullable="false" />
+          <Property Name="desconto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="acrescimo" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="valorTotal" Type="decimal" Precision="10" Scale="2" />
           <Property Name="hospCodigo" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="produto">
           <Key>
             <PropertyRef Name="prodCodigo" />
           </Key>
-          <Property Name="prodCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="prodCodigo" Type="int" Nullable="false" />
           <Property Name="prodDescricao" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="prodValor" Type="float" />
+          <Property Name="prodValor" Type="decimal" Precision="10" Scale="2" />
           <Property Name="tipoCodigo" Type="int" Nullable="false" />
           <Property Name="unidadeCodigo" Type="int" Nullable="false" />
         </EntityType>
@@ -102,7 +106,7 @@
           <Key>
             <PropertyRef Name="quartoCodigo" />
           </Key>
-          <Property Name="quartoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="quartoCodigo" Type="int" Nullable="false" />
           <Property Name="quartoDescricao" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="quartoNumero" Type="int" Nullable="false" />
           <Property Name="quartoAndar" Type="int" />
@@ -126,16 +130,16 @@
           <Key>
             <PropertyRef Name="servCodigo" />
           </Key>
-          <Property Name="servCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="servCodigo" Type="int" Nullable="false" />
           <Property Name="servescricao" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="servValor" Type="float" Nullable="false" />
+          <Property Name="servValor" Type="decimal" Precision="10" Scale="2" />
           <Property Name="tipoCodigo" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="servicosPrestados">
           <Key>
             <PropertyRef Name="servPrestadoCodigo" />
           </Key>
-          <Property Name="servPrestadoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="servPrestadoCodigo" Type="int" Nullable="false" />
           <Property Name="valorUnitario" Type="float" Nullable="false" />
           <Property Name="quantidade" Type="int" Nullable="false" />
           <Property Name="servCodigo" Type="int" Nullable="false" />
@@ -145,28 +149,28 @@
           <Key>
             <PropertyRef Name="tipoCodigo" />
           </Key>
-          <Property Name="tipoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoCodigo" Type="int" Nullable="false" />
           <Property Name="tipoDescricao" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="tipoProduto">
           <Key>
             <PropertyRef Name="tipoCodigo" />
           </Key>
-          <Property Name="tipoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoCodigo" Type="int" Nullable="false" />
           <Property Name="tipoDescricao" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="tipoServico">
           <Key>
             <PropertyRef Name="tipoCodigo" />
           </Key>
-          <Property Name="tipoCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoCodigo" Type="int" Nullable="false" />
           <Property Name="tipoDescricao" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="unidadeProduto">
           <Key>
             <PropertyRef Name="unidadeCodigo" />
           </Key>
-          <Property Name="unidadeCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="unidadeCodigo" Type="int" Nullable="false" />
           <Property Name="unidadeDescricao" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="unidadeResumo" Type="varchar" MaxLength="2" />
         </EntityType>
@@ -386,7 +390,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="bdHotelModelStoreContainer">
+        <EntityContainer Name="EntityFrameworkStoreContainer">
           <EntitySet Name="cidade" EntityType="Self.cidade" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="consumo" EntityType="Self.consumo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="estado" EntityType="Self.estado" Schema="dbo" store:Type="Tables" />
@@ -480,12 +484,12 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="bdHotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EntityFramework" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="cidade">
           <Key>
             <PropertyRef Name="cidadeCodigo" />
           </Key>
-          <Property Name="cidadeCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cidadeCodigo" Type="Int32" Nullable="false" />
           <Property Name="cidadeNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estadoCodigo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="funcionario" Relationship="Self.fk_cidadeCodigo_funcionario" FromRole="cidade" ToRole="funcionario" />
@@ -496,7 +500,7 @@
           <Key>
             <PropertyRef Name="consumoCodigo" />
           </Key>
-          <Property Name="consumoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="consumoCodigo" Type="Int32" Nullable="false" />
           <Property Name="valorUnitario" Type="Double" Nullable="false" />
           <Property Name="quantidade" Type="Int32" Nullable="false" />
           <Property Name="hospCodigo" Type="Int32" Nullable="false" />
@@ -508,7 +512,7 @@
           <Key>
             <PropertyRef Name="estadoCodigo" />
           </Key>
-          <Property Name="estadoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estadoCodigo" Type="Int32" Nullable="false" />
           <Property Name="estadoNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="estadoSigla" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="cidade" Relationship="Self.fk_estadoCodigo" FromRole="estado" ToRole="cidade" />
@@ -517,13 +521,13 @@
           <Key>
             <PropertyRef Name="funcCodigo" />
           </Key>
-          <Property Name="funcCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="funcCodigo" Type="Int32" Nullable="false" />
           <Property Name="funcNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="funcCpf" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="funcTelefone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="funcCelular" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="funcLogradouro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="funcNumero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="funcNumero" Type="Int32" Nullable="false" />
           <Property Name="funcBairro" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="funcCep" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="funcComplemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -581,6 +585,10 @@
           </Key>
           <Property Name="pagCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
+          <Property Name="parcelas" Type="Int32" Nullable="false" />
+          <Property Name="desconto" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="acrescimo" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="valorTotal" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="hospCodigo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="hospedagem" Relationship="Self.fk_hospCodigo_pagamento" FromRole="pagamento" ToRole="hospedagem" />
         </EntityType>
@@ -588,9 +596,9 @@
           <Key>
             <PropertyRef Name="prodCodigo" />
           </Key>
-          <Property Name="prodCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="prodCodigo" Type="Int32" Nullable="false" />
           <Property Name="prodDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="prodValor" Type="Double" />
+          <Property Name="prodValor" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
           <Property Name="unidadeCodigo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="consumo" Relationship="Self.fk_prodCodigo_consumo" FromRole="produto" ToRole="consumo" />
@@ -601,7 +609,7 @@
           <Key>
             <PropertyRef Name="quartoCodigo" />
           </Key>
-          <Property Name="quartoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="quartoCodigo" Type="Int32" Nullable="false" />
           <Property Name="quartoDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="quartoNumero" Type="Int32" Nullable="false" />
           <Property Name="quartoAndar" Type="Int32" />
@@ -631,9 +639,9 @@
           <Key>
             <PropertyRef Name="servCodigo" />
           </Key>
-          <Property Name="servCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="servCodigo" Type="Int32" Nullable="false" />
           <Property Name="servescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="servValor" Type="Double" Nullable="false" />
+          <Property Name="servValor" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="servicosPrestados" Relationship="Self.fk_servCodigo_servPrest" FromRole="servico" ToRole="servicosPrestados" />
           <NavigationProperty Name="tipoServico" Relationship="Self.fk_tipoCodigo_servico" FromRole="servico" ToRole="tipoServico" />
@@ -642,7 +650,7 @@
           <Key>
             <PropertyRef Name="servPrestadoCodigo" />
           </Key>
-          <Property Name="servPrestadoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="servPrestadoCodigo" Type="Int32" Nullable="false" />
           <Property Name="valorUnitario" Type="Double" Nullable="false" />
           <Property Name="quantidade" Type="Int32" Nullable="false" />
           <Property Name="servCodigo" Type="Int32" Nullable="false" />
@@ -654,14 +662,14 @@
           <Key>
             <PropertyRef Name="tipoCodigo" />
           </Key>
-          <Property Name="tipoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
           <Property Name="tipoDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="tipoProduto">
           <Key>
             <PropertyRef Name="tipoCodigo" />
           </Key>
-          <Property Name="tipoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
           <Property Name="tipoDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="produto" Relationship="Self.fk_tipoCodigo" FromRole="tipoProduto" ToRole="produto" />
         </EntityType>
@@ -669,7 +677,7 @@
           <Key>
             <PropertyRef Name="tipoCodigo" />
           </Key>
-          <Property Name="tipoCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoCodigo" Type="Int32" Nullable="false" />
           <Property Name="tipoDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="servico" Relationship="Self.fk_tipoCodigo_servico" FromRole="tipoServico" ToRole="servico" />
         </EntityType>
@@ -677,7 +685,7 @@
           <Key>
             <PropertyRef Name="unidadeCodigo" />
           </Key>
-          <Property Name="unidadeCodigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="unidadeCodigo" Type="Int32" Nullable="false" />
           <Property Name="unidadeDescricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="unidadeResumo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="produto" Relationship="Self.fk_unidadeCodigo" FromRole="unidadeProduto" ToRole="produto" />
@@ -993,9 +1001,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="bdHotelModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="EntityFrameworkStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="cidade">
-            <EntityTypeMapping TypeName="bdHotelModel.cidade">
+            <EntityTypeMapping TypeName="EntityFramework.cidade">
               <MappingFragment StoreEntitySet="cidade">
                 <ScalarProperty Name="cidadeCodigo" ColumnName="cidadeCodigo" />
                 <ScalarProperty Name="cidadeNome" ColumnName="cidadeNome" />
@@ -1004,7 +1012,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="consumo">
-            <EntityTypeMapping TypeName="bdHotelModel.consumo">
+            <EntityTypeMapping TypeName="EntityFramework.consumo">
               <MappingFragment StoreEntitySet="consumo">
                 <ScalarProperty Name="consumoCodigo" ColumnName="consumoCodigo" />
                 <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
@@ -1015,7 +1023,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="estado">
-            <EntityTypeMapping TypeName="bdHotelModel.estado">
+            <EntityTypeMapping TypeName="EntityFramework.estado">
               <MappingFragment StoreEntitySet="estado">
                 <ScalarProperty Name="estadoCodigo" ColumnName="estadoCodigo" />
                 <ScalarProperty Name="estadoNome" ColumnName="estadoNome" />
@@ -1024,7 +1032,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="funcionario">
-            <EntityTypeMapping TypeName="bdHotelModel.funcionario">
+            <EntityTypeMapping TypeName="EntityFramework.funcionario">
               <MappingFragment StoreEntitySet="funcionario">
                 <ScalarProperty Name="funcCodigo" ColumnName="funcCodigo" />
                 <ScalarProperty Name="funcNome" ColumnName="funcNome" />
@@ -1045,7 +1053,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hospedagem">
-            <EntityTypeMapping TypeName="bdHotelModel.hospedagem">
+            <EntityTypeMapping TypeName="EntityFramework.hospedagem">
               <MappingFragment StoreEntitySet="hospedagem">
                 <ScalarProperty Name="hospedagemCodigo" ColumnName="hospedagemCodigo" />
                 <ScalarProperty Name="hospCheckin" ColumnName="hospCheckin" />
@@ -1059,7 +1067,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hospede">
-            <EntityTypeMapping TypeName="bdHotelModel.hospede">
+            <EntityTypeMapping TypeName="EntityFramework.hospede">
               <MappingFragment StoreEntitySet="hospede">
                 <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
                 <ScalarProperty Name="hospNome" ColumnName="hospNome" />
@@ -1076,16 +1084,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="pagamento">
-            <EntityTypeMapping TypeName="bdHotelModel.pagamento">
+            <EntityTypeMapping TypeName="EntityFramework.pagamento">
               <MappingFragment StoreEntitySet="pagamento">
                 <ScalarProperty Name="pagCodigo" ColumnName="pagCodigo" />
                 <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
+                <ScalarProperty Name="parcelas" ColumnName="parcelas" />
+                <ScalarProperty Name="desconto" ColumnName="desconto" />
+                <ScalarProperty Name="acrescimo" ColumnName="acrescimo" />
+                <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
                 <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="produto">
-            <EntityTypeMapping TypeName="bdHotelModel.produto">
+            <EntityTypeMapping TypeName="EntityFramework.produto">
               <MappingFragment StoreEntitySet="produto">
                 <ScalarProperty Name="prodCodigo" ColumnName="prodCodigo" />
                 <ScalarProperty Name="prodDescricao" ColumnName="prodDescricao" />
@@ -1096,7 +1108,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="quarto">
-            <EntityTypeMapping TypeName="bdHotelModel.quarto">
+            <EntityTypeMapping TypeName="EntityFramework.quarto">
               <MappingFragment StoreEntitySet="quarto">
                 <ScalarProperty Name="quartoCodigo" ColumnName="quartoCodigo" />
                 <ScalarProperty Name="quartoDescricao" ColumnName="quartoDescricao" />
@@ -1110,7 +1122,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="reserva">
-            <EntityTypeMapping TypeName="bdHotelModel.reserva">
+            <EntityTypeMapping TypeName="EntityFramework.reserva">
               <MappingFragment StoreEntitySet="reserva">
                 <ScalarProperty Name="reservaCodigo" ColumnName="reservaCodigo" />
                 <ScalarProperty Name="reservaCheckin" ColumnName="reservaCheckin" />
@@ -1122,7 +1134,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="servico">
-            <EntityTypeMapping TypeName="bdHotelModel.servico">
+            <EntityTypeMapping TypeName="EntityFramework.servico">
               <MappingFragment StoreEntitySet="servico">
                 <ScalarProperty Name="servCodigo" ColumnName="servCodigo" />
                 <ScalarProperty Name="servescricao" ColumnName="servescricao" />
@@ -1132,7 +1144,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="servicosPrestados">
-            <EntityTypeMapping TypeName="bdHotelModel.servicosPrestados">
+            <EntityTypeMapping TypeName="EntityFramework.servicosPrestados">
               <MappingFragment StoreEntitySet="servicosPrestados">
                 <ScalarProperty Name="servPrestadoCodigo" ColumnName="servPrestadoCodigo" />
                 <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
@@ -1143,7 +1155,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tipoPagamento">
-            <EntityTypeMapping TypeName="bdHotelModel.tipoPagamento">
+            <EntityTypeMapping TypeName="EntityFramework.tipoPagamento">
               <MappingFragment StoreEntitySet="tipoPagamento">
                 <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
                 <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
@@ -1151,7 +1163,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tipoProduto">
-            <EntityTypeMapping TypeName="bdHotelModel.tipoProduto">
+            <EntityTypeMapping TypeName="EntityFramework.tipoProduto">
               <MappingFragment StoreEntitySet="tipoProduto">
                 <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
                 <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
@@ -1159,7 +1171,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tipoServico">
-            <EntityTypeMapping TypeName="bdHotelModel.tipoServico">
+            <EntityTypeMapping TypeName="EntityFramework.tipoServico">
               <MappingFragment StoreEntitySet="tipoServico">
                 <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
                 <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
@@ -1167,7 +1179,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="unidadeProduto">
-            <EntityTypeMapping TypeName="bdHotelModel.unidadeProduto">
+            <EntityTypeMapping TypeName="EntityFramework.unidadeProduto">
               <MappingFragment StoreEntitySet="unidadeProduto">
                 <ScalarProperty Name="unidadeCodigo" ColumnName="unidadeCodigo" />
                 <ScalarProperty Name="unidadeDescricao" ColumnName="unidadeDescricao" />

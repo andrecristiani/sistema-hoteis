@@ -27,7 +27,7 @@ namespace SistemaDeHotelaria
         public string funcTelefone { get; set; }
         public string funcCelular { get; set; }
         public string funcLogradouro { get; set; }
-        public string funcNumero { get; set; }
+        public int funcNumero { get; set; }
         public string funcBairro { get; set; }
         public string funcCep { get; set; }
         public string funcComplemento { get; set; }

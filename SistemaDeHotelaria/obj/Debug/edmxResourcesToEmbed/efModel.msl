@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="efModelStoreContainer" CdmEntityContainer="Entities">
-    <EntitySetMapping Name="cidades">
-      <EntityTypeMapping TypeName="efModel.cidade">
+  <EntityContainerMapping StorageEntityContainer="EntityFrameworkStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="cidade">
+      <EntityTypeMapping TypeName="EntityFramework.cidade">
         <MappingFragment StoreEntitySet="cidade">
           <ScalarProperty Name="cidadeCodigo" ColumnName="cidadeCodigo" />
           <ScalarProperty Name="cidadeNome" ColumnName="cidadeNome" />
@@ -10,8 +10,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="consumoes">
-      <EntityTypeMapping TypeName="efModel.consumo">
+    <EntitySetMapping Name="consumo">
+      <EntityTypeMapping TypeName="EntityFramework.consumo">
         <MappingFragment StoreEntitySet="consumo">
           <ScalarProperty Name="consumoCodigo" ColumnName="consumoCodigo" />
           <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
@@ -21,8 +21,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="estadoes">
-      <EntityTypeMapping TypeName="efModel.estado">
+    <EntitySetMapping Name="estado">
+      <EntityTypeMapping TypeName="EntityFramework.estado">
         <MappingFragment StoreEntitySet="estado">
           <ScalarProperty Name="estadoCodigo" ColumnName="estadoCodigo" />
           <ScalarProperty Name="estadoNome" ColumnName="estadoNome" />
@@ -30,8 +30,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="funcionarios">
-      <EntityTypeMapping TypeName="efModel.funcionario">
+    <EntitySetMapping Name="funcionario">
+      <EntityTypeMapping TypeName="EntityFramework.funcionario">
         <MappingFragment StoreEntitySet="funcionario">
           <ScalarProperty Name="funcCodigo" ColumnName="funcCodigo" />
           <ScalarProperty Name="funcNome" ColumnName="funcNome" />
@@ -51,8 +51,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="hospedagems">
-      <EntityTypeMapping TypeName="efModel.hospedagem">
+    <EntitySetMapping Name="hospedagem">
+      <EntityTypeMapping TypeName="EntityFramework.hospedagem">
         <MappingFragment StoreEntitySet="hospedagem">
           <ScalarProperty Name="hospedagemCodigo" ColumnName="hospedagemCodigo" />
           <ScalarProperty Name="hospCheckin" ColumnName="hospCheckin" />
@@ -61,11 +61,12 @@
           <ScalarProperty Name="reservaCodigo" ColumnName="reservaCodigo" />
           <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
           <ScalarProperty Name="quartoCodigo" ColumnName="quartoCodigo" />
+          <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="hospedes">
-      <EntityTypeMapping TypeName="efModel.hospede">
+    <EntitySetMapping Name="hospede">
+      <EntityTypeMapping TypeName="EntityFramework.hospede">
         <MappingFragment StoreEntitySet="hospede">
           <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
           <ScalarProperty Name="hospNome" ColumnName="hospNome" />
@@ -81,17 +82,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="pagamentoes">
-      <EntityTypeMapping TypeName="efModel.pagamento">
+    <EntitySetMapping Name="pagamento">
+      <EntityTypeMapping TypeName="EntityFramework.pagamento">
         <MappingFragment StoreEntitySet="pagamento">
           <ScalarProperty Name="pagCodigo" ColumnName="pagCodigo" />
           <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
+          <ScalarProperty Name="parcelas" ColumnName="parcelas" />
+          <ScalarProperty Name="desconto" ColumnName="desconto" />
+          <ScalarProperty Name="acrescimo" ColumnName="acrescimo" />
+          <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
           <ScalarProperty Name="hospCodigo" ColumnName="hospCodigo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="produtoes">
-      <EntityTypeMapping TypeName="efModel.produto">
+    <EntitySetMapping Name="produto">
+      <EntityTypeMapping TypeName="EntityFramework.produto">
         <MappingFragment StoreEntitySet="produto">
           <ScalarProperty Name="prodCodigo" ColumnName="prodCodigo" />
           <ScalarProperty Name="prodDescricao" ColumnName="prodDescricao" />
@@ -101,8 +106,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="quartos">
-      <EntityTypeMapping TypeName="efModel.quarto">
+    <EntitySetMapping Name="quarto">
+      <EntityTypeMapping TypeName="EntityFramework.quarto">
         <MappingFragment StoreEntitySet="quarto">
           <ScalarProperty Name="quartoCodigo" ColumnName="quartoCodigo" />
           <ScalarProperty Name="quartoDescricao" ColumnName="quartoDescricao" />
@@ -115,8 +120,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="reservas">
-      <EntityTypeMapping TypeName="efModel.reserva">
+    <EntitySetMapping Name="reserva">
+      <EntityTypeMapping TypeName="EntityFramework.reserva">
         <MappingFragment StoreEntitySet="reserva">
           <ScalarProperty Name="reservaCodigo" ColumnName="reservaCodigo" />
           <ScalarProperty Name="reservaCheckin" ColumnName="reservaCheckin" />
@@ -127,18 +132,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="servicoes">
-      <EntityTypeMapping TypeName="efModel.servico">
+    <EntitySetMapping Name="servico">
+      <EntityTypeMapping TypeName="EntityFramework.servico">
         <MappingFragment StoreEntitySet="servico">
           <ScalarProperty Name="servCodigo" ColumnName="servCodigo" />
-          <ScalarProperty Name="servDescricao" ColumnName="servDescricao" />
+          <ScalarProperty Name="servescricao" ColumnName="servescricao" />
           <ScalarProperty Name="servValor" ColumnName="servValor" />
           <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="servicosPrestados">
-      <EntityTypeMapping TypeName="efModel.servicosPrestado">
+      <EntityTypeMapping TypeName="EntityFramework.servicosPrestados">
         <MappingFragment StoreEntitySet="servicosPrestados">
           <ScalarProperty Name="servPrestadoCodigo" ColumnName="servPrestadoCodigo" />
           <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
@@ -148,32 +153,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tipoPagamentoes">
-      <EntityTypeMapping TypeName="efModel.tipoPagamento">
+    <EntitySetMapping Name="tipoPagamento">
+      <EntityTypeMapping TypeName="EntityFramework.tipoPagamento">
         <MappingFragment StoreEntitySet="tipoPagamento">
           <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
           <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tipoProdutoes">
-      <EntityTypeMapping TypeName="efModel.tipoProduto">
+    <EntitySetMapping Name="tipoProduto">
+      <EntityTypeMapping TypeName="EntityFramework.tipoProduto">
         <MappingFragment StoreEntitySet="tipoProduto">
           <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
           <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tipoServicoes">
-      <EntityTypeMapping TypeName="efModel.tipoServico">
+    <EntitySetMapping Name="tipoServico">
+      <EntityTypeMapping TypeName="EntityFramework.tipoServico">
         <MappingFragment StoreEntitySet="tipoServico">
           <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
           <ScalarProperty Name="tipoDescricao" ColumnName="tipoDescricao" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="unidadeProdutoes">
-      <EntityTypeMapping TypeName="efModel.unidadeProduto">
+    <EntitySetMapping Name="unidadeProduto">
+      <EntityTypeMapping TypeName="EntityFramework.unidadeProduto">
         <MappingFragment StoreEntitySet="unidadeProduto">
           <ScalarProperty Name="unidadeCodigo" ColumnName="unidadeCodigo" />
           <ScalarProperty Name="unidadeDescricao" ColumnName="unidadeDescricao" />

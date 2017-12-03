@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="efModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="EntityFramework.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="cidade">
     <Key>
       <PropertyRef Name="cidadeCodigo" />
@@ -50,25 +50,26 @@
     <Key>
       <PropertyRef Name="hospedagemCodigo" />
     </Key>
-    <Property Name="hospedagemCodigo" Type="int" Nullable="false" />
+    <Property Name="hospedagemCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="hospCheckin" Type="datetime" Nullable="false" />
     <Property Name="hospCheckout" Type="datetime" Nullable="false" />
     <Property Name="funcCodigo" Type="int" Nullable="false" />
     <Property Name="reservaCodigo" Type="int" />
     <Property Name="hospCodigo" Type="int" Nullable="false" />
     <Property Name="quartoCodigo" Type="int" Nullable="false" />
+    <Property Name="valorTotal" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="hospede">
     <Key>
       <PropertyRef Name="hospCodigo" />
     </Key>
-    <Property Name="hospCodigo" Type="int" Nullable="false" />
+    <Property Name="hospCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="hospNome" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="hospCpf" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="hospTelefone" Type="varchar" MaxLength="15" />
     <Property Name="hospCelular" Type="varchar" MaxLength="15" />
     <Property Name="hospLogradouro" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="hospNumero" Type="int" Nullable="false" />
+    <Property Name="hospNumero" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="hospBairro" Type="varchar" MaxLength="30" />
     <Property Name="hospCep" Type="varchar" MaxLength="12" />
     <Property Name="hospComplemento" Type="varchar" MaxLength="50" />
@@ -78,8 +79,12 @@
     <Key>
       <PropertyRef Name="pagCodigo" />
     </Key>
-    <Property Name="pagCodigo" Type="int" Nullable="false" />
+    <Property Name="pagCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="tipoCodigo" Type="int" Nullable="false" />
+    <Property Name="parcelas" Type="int" Nullable="false" />
+    <Property Name="desconto" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="acrescimo" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="valorTotal" Type="decimal" Precision="10" Scale="2" />
     <Property Name="hospCodigo" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="produto">
@@ -88,7 +93,7 @@
     </Key>
     <Property Name="prodCodigo" Type="int" Nullable="false" />
     <Property Name="prodDescricao" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="prodValor" Type="float" />
+    <Property Name="prodValor" Type="decimal" Precision="10" Scale="2" />
     <Property Name="tipoCodigo" Type="int" Nullable="false" />
     <Property Name="unidadeCodigo" Type="int" Nullable="false" />
   </EntityType>
@@ -109,7 +114,7 @@
     <Key>
       <PropertyRef Name="reservaCodigo" />
     </Key>
-    <Property Name="reservaCodigo" Type="int" Nullable="false" />
+    <Property Name="reservaCodigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="reservaCheckin" Type="datetime" Nullable="false" />
     <Property Name="reservaCheckout" Type="datetime" Nullable="false" />
     <Property Name="quartoCodigo" Type="int" Nullable="false" />
@@ -121,8 +126,8 @@
       <PropertyRef Name="servCodigo" />
     </Key>
     <Property Name="servCodigo" Type="int" Nullable="false" />
-    <Property Name="servDescricao" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="servValor" Type="float" Nullable="false" />
+    <Property Name="servescricao" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="servValor" Type="decimal" Precision="10" Scale="2" />
     <Property Name="tipoCodigo" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="servicosPrestados">
@@ -380,7 +385,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="efModelStoreContainer">
+  <EntityContainer Name="EntityFrameworkStoreContainer">
     <EntitySet Name="cidade" EntityType="Self.cidade" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="consumo" EntityType="Self.consumo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="estado" EntityType="Self.estado" Schema="dbo" store:Type="Tables" />

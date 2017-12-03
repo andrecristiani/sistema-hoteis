@@ -16,6 +16,10 @@ namespace SistemaDeHotelaria
     {
         public int pagCodigo { get; set; }
         public int tipoCodigo { get; set; }
+        public int parcelas { get; set; }
+        public Nullable<decimal> desconto { get; set; }
+        public Nullable<decimal> acrescimo { get; set; }
+        public Nullable<decimal> valorTotal { get; set; }
         public int hospCodigo { get; set; }
     
         public virtual hospedagem hospedagem { get; set; }

@@ -624,6 +624,7 @@
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "frmHospedes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Hóspedes";
             this.Load += new System.EventHandler(this.frmHospedes_Load);
             this.panel1.ResumeLayout(false);

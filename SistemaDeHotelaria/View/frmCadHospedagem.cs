@@ -66,16 +66,17 @@ namespace SistemaDeHotelaria.View
             }
             listaReservas = Reservas.carregarListaReservas();
             Hospedagens.carregarHospedagens();
-            desabilitar();
-            txtCodigo.Enabled = false;
-            rbTodas.Checked = true;
-            mkDataBusca.Enabled = false;
             opcao = 1;
 
             if(sit.Reserva > 0)
             {
                 carregarReserva(sit.Reserva);
             }
+            habilitar();
+            cbQuarto.Enabled = false;
+            txtCodigo.Enabled = false;
+            cbHospede.Enabled = false;
+            cbQuarto.SelectedItem = sit.Quarto;
         }
 
         private void carregarGrid()
@@ -278,6 +279,15 @@ namespace SistemaDeHotelaria.View
             
         }
 
+        private void frmCadHospedagem_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (Panel p in frmPrincipal.panels)
+            {
+                p.Dispose();
+            }
+            this.frm.criarPanels();
+        }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {       
             int codQuarto = listaQuarto[cbQuarto.SelectedIndex].Codigo;
@@ -358,7 +368,10 @@ namespace SistemaDeHotelaria.View
 
         public void inserir()
         {
-            hos.CodigoHosp = listaHospede[cbHospede.SelectedIndex].Codigo;
+            if (sit != null)
+                hos.CodigoHosp = sit.Hospede;
+            else
+                hos.CodigoHosp = listaHospede[cbHospede.SelectedIndex].Codigo;
             hos.CodigoQuarto = listaQuarto[cbQuarto.SelectedIndex].Codigo;
             hos.Checkin = DateTime.Parse(dtpCheckin.Text);
             hos.Checkout = DateTime.Parse(dtpCheckout.Text);
@@ -405,7 +418,7 @@ namespace SistemaDeHotelaria.View
         private void carregarReserva(int codigo)
         {
             Reservas reserva = listaReservas.Find(res => res.Codigo.Equals(codigo));
-            MessageBox.Show(reserva.Codigo.ToString()); cbHospede.Text = sit.NomeHospede;
+            cbHospede.Text = sit.NomeHospede;
             cbQuarto.Text = reserva.CodQuarto.ToString();
             dtpCheckin.Text = reserva.Checkin.ToString();
             dtpCheckout.Text = reserva.Checkout.ToString(); ;
